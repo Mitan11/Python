@@ -147,3 +147,62 @@ Both triple quotes work the same way.
 # Variables can even change type (though not recommended)
 # variable = 100        # Number
 # variable = "hundred"  # Now it's text
+
+# -------------------- DATA TYPES --------------------
+# 📦 What are Data Types?
+# A data type is like a label that tells Python what kind of data you're storing
+# Just like different boxes for different items at home!
+
+# 🔢 1. NUMBERS:
+# There are 3 types of numbers in Python:
+
+# Type 1: Integer (int) - Whole numbers
+# age = 25              # No decimal point
+# score = 100
+# temperature = -5      # Can be negative too
+
+# Type 2: Float (float) - Decimal numbers
+# price = 99.99        # Has decimal point
+# height = 5.8
+# weight = 68.5
+
+# Type 3: Complex - Numbers with real and imaginary parts
+# Usually used in advanced math, don't worry much about these!
+# complex_num = 4 + 5j  # j represents imaginary part
+
+# 🔤 2. STRING (str) - Text Data:
+# Anything in quotes is a string
+# name = "Mitan"                # Double quotes work
+# message = 'Hello, World!'     # Single quotes work too
+# address = "123 Main Street"   # Numbers in quotes are still strings
+# empty_string = ""            # An empty string is valid too
+
+# 💡 Fun Fact: You can use either single (') or double (") quotes
+# They work exactly the same way!
+
+# ✅ 3. BOOLEAN (bool) - True/False:
+# Like a light switch - only two possible values!
+# is_student = True            # Yes, I am a student
+# is_raining = False          # No, it's not raining
+# has_passed = True           # Yes, test is passed
+
+# 🎯 Real World Examples:
+# student_info = "Mitan Tank"     # String: For names
+# student_age = 22               # Integer: For age
+# student_grade = 95.5           # Float: For grade/marks
+# is_present = True             # Boolean: For attendance
+
+# 💡 Quick Tip: Check Type
+# To find out the type of any value, use type():
+# name = "Mitan"
+# print(type(name))    # Will show: <class 'str'>
+
+# 🔄 Converting Between Types:
+# score = "100"        # This is a string
+# score = int(score)   # Now converted to integer (100)
+# 
+# price = 99
+# price = str(price)   # Now converted to string ("99")
+# 
+# text = "True"
+# text = bool(text)    # Now converted to boolean (True)
