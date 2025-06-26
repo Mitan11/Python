@@ -477,4 +477,79 @@ Both triple quotes work the same way.
 # Convert input   int(), float()   age = int(input("Enter age: "))
 # Combine output  f-string         f"Hi {name}"
 
+# -------------------- OPERATORS IN PYTHON --------------------
+# ⚙️ What are Operators?
+# Definition: Operators are special symbols or keywords in Python that are used to perform operations on values or variables. 
+# They let you do things like add numbers, compare values, assign data, and combine conditions.
+# For example: + adds numbers, == compares values, and checks logic conditions.
+#
+# Operators make it easy to write calculations, logic, and data manipulation in your code.
+#
+# 🔢 1. Arithmetic Operators (Basic Math)
+# Operator   Name              Example     Output
+#   +        Addition          5 + 3       8
+#   -        Subtraction       10 - 4      6
+#   *        Multiplication    2 * 3       6
+#   /        Division          10 / 3      3.33
+#   //       Floor Division    10 // 3     3
+#   %        Modulus           10 % 3      1
+#   **       Exponent          2 ** 3      8
+#
+# 🧪 Example:
+# a = 10
+# b = 3
+# print(a + b)   # 13
+# print(a % b)   # 1
+# print(a ** b)  # 1000
+
+# 📝 2. Assignment Operators (Assigning Values)
+# Operator   Meaning              Example
+#   =        Assign               x = 5
+#   +=       Add and assign       x += 2
+#   -=       Subtract and assign  x -= 1
+#   *=       Multiply and assign  x *= 3
+#   /=       Divide and assign    x /= 2
+#   //=      Floor divide assign  x //= 2
+#   %=       Modulus assign       x %= 2
+#   **=      Exponent assign      x **= 2
+#
+# 🧪 Example:
+# x = 5
+# x += 3    # x = x + 3
+# print(x)  # Output: 8
+
+# ⚖️ 3. Comparison Operators (Compare Values)
+# Used to compare values, gives True or False.
+# Operator   Meaning                  Example     Output
+#   ==       Equal to                 5 == 5      True
+#   !=       Not equal to             5 != 3      True
+#   >        Greater than             5 > 3       True
+#   <        Less than                5 < 3       False
+#   >=       Greater or equal         5 >= 5      True
+#   <=       Less or equal            5 <= 4      False
+
+# 🔗 4. Logical Operators (Combine Conditions)
+# Used to combine multiple conditions.
+# Operator   Meaning                  Example                Result
+#   and      True if both are True    5 > 2 and 3 < 4        True
+#   or       True if any is True      5 > 2 or 3 > 5         True
+#   not      Reverses condition       not (5 > 2)            False
+
+# ✅ Example Using All
+# a = 10
+# b = 5
+#
+# # Arithmetic
+# print(a + b)      # 15
+#
+# # Assignment
+# a += 2
+# print(a)          # 12
+#
+# # Comparison
+# print(a == b)     # False
+#
+# # Logical
+# print(a > b and b > 2)  # True
+
 # -------------------- END --------------------
