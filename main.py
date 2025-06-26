@@ -206,3 +206,126 @@ Both triple quotes work the same way.
 # 
 # text = "True"
 # text = bool(text)    # Now converted to boolean (True)
+
+# -------------------- STRING INDEXING & SLICING --------------------
+# 🔤 What is a String?
+# A string is just text! It can contain letters, numbers, symbols, spaces, even emojis!
+# You can use single quotes (') or double quotes (")
+
+# Examples:
+# name = "Mitan"                 # Letters
+# number_text = "123"           # Numbers (as text)
+# mixed = "Hello! 123 🌟"       # Mix of everything
+# empty = ""                    # Empty string
+
+# 💾 Understanding Unicode in Strings
+# Every character in a string has a unique number (Unicode)
+# You can find these numbers using ord() and chr()
+
+# Examples of ord() - Get Unicode number of character:
+# print(ord("A"))      # 65
+# print(ord(" "))      # 32 (space)
+# print(ord("😊"))     # 128522 (emoji)
+
+# Examples of chr() - Get character from Unicode number:
+# print(chr(65))       # A
+# print(chr(128522))   # 😊
+
+# 🔢 STRING INDEXING (Getting Single Characters)
+# Each character has a position number (index)
+# First character is index 0
+# Last character is index -1
+
+# Example string:
+# message = "Hello"
+#  Index:   01234
+# -Index:  -5-4-3-2-1
+
+# Getting characters by index:
+# text = "Hello"
+# print(text[0])     # H (first character)
+# print(text[1])     # e (second character)
+# print(text[4])     # o (last character)
+
+# Negative indexing (counting from end):
+# print(text[-1])    # o (last character)
+# print(text[-2])    # l (second-last character)
+# print(text[-5])    # H (first character)
+
+# ✂️ STRING SLICING (Getting Parts of Strings)
+# Think of slicing like cutting a piece of bread - you need to know where to start and stop!
+
+# 📝 Slicing Format: string[start : stop : step]
+#    - start: Where to begin the slice (included)
+#    - stop:  Where to end the slice (not included)
+#    - step:  How many characters to jump/skip
+
+# 🎯 Let's understand with a simple word: "Python"
+# 
+#    P   y   t   h   o   n
+#    0   1   2   3   4   5   (Positive index)
+#   -6  -5  -4  -3  -2  -1   (Negative index)
+#
+# 1️⃣ Basic Slicing (start:stop)
+# word = "Python"
+# print(word[0:2])    # "Py"    (Start at 0, stop before 2)
+# print(word[2:4])    # "th"    (Start at 2, stop before 4)
+# print(word[4:6])    # "on"    (Start at 4, stop before 6)
+
+# 2️⃣ Using Negative Index
+# print(word[-3:-1])  # "ho"    (Start at -3, stop before -1)
+# print(word[-2:])    # "on"    (Start at -2, go to end)
+# print(word[:-2])    # "Pyth"  (Start at beginning, stop before -2)
+
+# 3️⃣ Using Step
+# word = "Python"
+# print(word[::1])    # "Python"  (Every character - step 1)
+# print(word[::2])    # "Pto"     (Every 2nd character)
+# print(word[::3])    # "Ph"      (Every 3rd character)
+
+# 4️⃣ Common Patterns (with a longer example)
+# text = "Hello, Python World!"
+#
+# Get first 5 characters:
+# print(text[0:5])     # "Hello"
+# print(text[:5])      # "Hello"  (Same as above - 0 can be omitted)
+#
+# Get last 6 characters:
+# print(text[-6:])     # "World!"
+#
+# Reverse the string:
+# print(text[::-1])    # "!dlroW nohtyP ,olleH"
+#
+# Get every 2nd character:
+# print(text[::2])     # "Hlo yhnWrd"
+
+# 🎨 More Creative Examples:
+# message = "Hello, Python World!"
+#
+# Get only the word "Python":
+# print(message[7:13])      # "Python"
+#
+# Get "Hello" and "World" only:
+# print(message[:5] + message[-6:])  # "HelloWorld"
+#
+# Reverse only "Python":
+# print(message[:7] + message[7:13][::-1] + message[13:])  # "Hello, nohtyP World!"
+
+# 💡 Pro Tips:
+# 1. If start is omitted, slice starts from beginning
+#    print(text[:5])     # Same as text[0:5]
+#
+# 2. If stop is omitted, slice goes until end
+#    print(text[7:])     # From index 7 to end
+#
+# 3. If step is negative, string is read backwards
+#    print(text[::-1])   # Reverse entire string
+#
+# 4. You can't go out of bounds - Python handles it:
+#    text = "Python"
+#    print(text[0:100])  # Prints "Python" (no error)
+
+# 🚫 Common Mistakes to Avoid:
+# text = "Python"
+# print(text[6])        # Error! Index 6 doesn't exist
+# print(text[0:6:0])    # Error! Step cannot be 0
