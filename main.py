@@ -329,3 +329,104 @@ Both triple quotes work the same way.
 # text = "Python"
 # print(text[6])        # Error! Index 6 doesn't exist
 # print(text[0:6:0])    # Error! Step cannot be 0
+
+# -------------------- TYPE CONVERSION --------------------
+# 🔄 Type Conversion in Python
+# 📌 What is Type Conversion?
+# Type conversion means changing one data type into another.
+# Example: converting a number into a string or a string into a number.
+
+# 🔷 1. Types of Type Conversion
+#
+# ✅ A. Implicit Conversion (Automatic)
+# Python does this by itself when needed.
+# Example:
+# a = 10         # int
+# b = 2.5        # float
+# result = a + b
+# print(result)        # 12.5
+# print(type(result))  # <class 'float'>
+# ✅ Python converted int to float because float is more precise.
+
+# ✅ B. Explicit Conversion (Type Casting)
+# You do this yourself using built-in functions.
+#
+# 🛠️ Common Type Conversion Functions:
+# int()      # Converts to Integer
+# float()    # Converts to Float
+# str()      # Converts to String
+# bool()     # Converts to Boolean
+# complex()  # Converts to Complex Number
+# list()     # Converts to List
+# tuple()    # Converts to Tuple
+# set()      # Converts to Set
+# dict()     # Converts to Dictionary
+#
+# 🔸 Example of Explicit Conversion:
+# a = 12
+# print(type(a))    # <class 'int'>
+# a = str(a)        # Convert to string
+# print(a)          # "12"
+# print(type(a))    # <class 'str'>
+
+# ❗ Important Notes
+# 🔺 You cannot convert letters or symbols directly to int():
+# int("abc")   # ❌ Error
+#
+# ✅ You can convert number strings:
+# a = "100"
+# a = int(a)
+# print(a)          # 100
+
+# ✅ Truthy & Falsy Values (Using bool())
+# 📌 What is a Truthy/Falsy value?
+# When you use bool(something), Python checks whether the value is:
+#   ✅ Truthy → becomes True
+#   ❌ Falsy → becomes False
+#
+# ❌ These 7 values are always False in Python:
+# 0
+# 0.0
+# False
+# None
+# "" (empty string)
+# [] (empty list)
+# {} or set() or tuple() (empty container)
+#
+# ✅ Everything else is considered True!
+#
+# 🔎 Examples:
+# print(bool(0))        # False
+# print(bool(""))       # False
+# print(bool([]))       # False
+# print(bool(1))        # True
+# print(bool("hello"))  # True
+# print(bool([1, 2]))   # True
+
+# 🎯 Summary Table
+# Type         Method           Example
+# Implicit     Auto by Python   print(10 + 2.5)
+# Explicit     Use function     int("5")
+#
+# Function     Converts To
+# int()        Integer
+# float()      Float
+# str()        String
+# bool()       Boolean
+
+# 🚫 Common Mistakes
+# Mistake                Fix
+# int("abc")             Use valid number string only
+# bool("False") → True   Non-empty string is always True
+# int("12.5") → Error    First convert to float, then int
+
+# -------------------- TRUTHY & FALSY VALUES --------------------
+# Definition: In Python, every value can be evaluated as either True or False in a boolean context (like in if statements).
+# Falsy values are treated as False; all other values are treated as True (truthy).
+# Only 7 values are considered falsy:
+# 0, 0.0, None, False, "", [], {}
+
+# print(bool(0))       # False (zero is falsy)
+# print(bool(""))      # False (empty string is falsy)
+# print(bool([]))      # False (empty list is falsy)
+# print(bool("Hi"))    # True (non-empty string is truthy)
