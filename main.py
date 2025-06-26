@@ -430,3 +430,51 @@ Both triple quotes work the same way.
 # print(bool(""))      # False (empty string is falsy)
 # print(bool([]))      # False (empty list is falsy)
 # print(bool("Hi"))    # True (non-empty string is truthy)
+
+
+# -------------------- INPUT & OUTPUT IN PYTHON --------------------
+# 🖨️ Output in Python
+# ✅ How to Show Output?
+# Use the print() function to show anything on the screen.
+#
+# print("Hello, World!")
+#
+# ✅ Printing Variables
+# You can also show the value of variables:
+# name = "Mitan"
+# print(name)  # Output: Mitan
+#
+# ✅ Using Formatted Strings (f-strings)
+# You can insert variables inside a string using f""
+# name = "Mitan"
+# age = 20
+# print(f"My name is {name} and I am {age} years old.")
+
+# ⌨️ Input in Python
+# ✅ How to Get Input From the User?
+# Use the input() function.
+# name = input("What is your name? ")
+# print(f"Hello, {name}!")
+#
+# ⚠️ Default Data Type = String
+# All input is taken as a string, even if you enter a number.
+# age = input("Enter your age: ")
+# print(type(age))  # <class 'str'>
+#
+# So if you want it as a number (like for calculation), you must convert it:
+# age = int(input("Enter your age: "))
+# print(f"Next year, you will be {age + 1} years old.")
+
+# ✅ Example: Input + Output Together
+# name = input("Enter your name: ")
+# age = int(input("Enter your age: "))
+# print(f"Hi {name}, you are {age} years old.")
+
+# 🧠 Summary Table
+# Task            Function         Example
+# Show output     print()          print("Hello")
+# Get input       input()          name = input("Enter name: ")
+# Convert input   int(), float()   age = int(input("Enter age: "))
+# Combine output  f-string         f"Hi {name}"
+
+# -------------------- END --------------------
