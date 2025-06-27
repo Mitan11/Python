@@ -21,6 +21,7 @@ Feel free to experiment with the examples!
 
 print("Har Har Mahadev")
 
+# -------------------- END --------------------
 
 # -------------------- COMMENTS IN PYTHON --------------------
 # Definition: Comments are lines of text in your code that are completely ignored by the Python interpreter.
@@ -77,6 +78,8 @@ Both triple quotes work the same way.
 # Good comment (explains why):
 # counter = 0     # Initialize user interaction counter
 # counter = counter + 1  # Increment counter for each user interaction
+
+# -------------------- END --------------------
 
 # -------------------- VARIABLES IN PYTHON --------------------
 # 📦 What is a Variable?
@@ -148,6 +151,8 @@ Both triple quotes work the same way.
 # variable = 100        # Number
 # variable = "hundred"  # Now it's text
 
+# -------------------- END --------------------
+
 # -------------------- DATA TYPES --------------------
 # 📦 What are Data Types?
 # A data type is like a label that tells Python what kind of data you're storing
@@ -206,6 +211,8 @@ Both triple quotes work the same way.
 # 
 # text = "True"
 # text = bool(text)    # Now converted to boolean (True)
+
+# -------------------- END --------------------
 
 # -------------------- STRING INDEXING & SLICING --------------------
 # 🔤 What is a String?
@@ -330,6 +337,8 @@ Both triple quotes work the same way.
 # print(text[6])        # Error! Index 6 doesn't exist
 # print(text[0:6:0])    # Error! Step cannot be 0
 
+# -------------------- END --------------------
+
 # -------------------- TYPE CONVERSION --------------------
 # 🔄 Type Conversion in Python
 # 📌 What is Type Conversion?
@@ -431,6 +440,7 @@ Both triple quotes work the same way.
 # print(bool([]))      # False (empty list is falsy)
 # print(bool("Hi"))    # True (non-empty string is truthy)
 
+# -------------------- END --------------------
 
 # -------------------- INPUT & OUTPUT IN PYTHON --------------------
 # 🖨️ Output in Python
@@ -476,6 +486,8 @@ Both triple quotes work the same way.
 # Get input       input()          name = input("Enter name: ")
 # Convert input   int(), float()   age = int(input("Enter age: "))
 # Combine output  f-string         f"Hi {name}"
+
+# -------------------- END --------------------
 
 # -------------------- OPERATORS IN PYTHON --------------------
 # ⚙️ What are Operators?
@@ -551,5 +563,57 @@ Both triple quotes work the same way.
 #
 # # Logical
 # print(a > b and b > 2)  # True
+
+# -------------------- END --------------------
+
+# -------------------- CONDITIONAL STATEMENTS IN PYTHON --------------------
+# ✅ Conditional Statements in Python
+# 💡 What Are Conditional Statements?
+# Conditional statements let your program make decisions and run different code depending on conditions.
+# They help you control the flow of your program — that's why they're also called control flow statements.
+#
+# 🧠 Real-Life Example:
+# You ask a user to enter a number.
+# If the number is greater than 10, print "Task A"
+# Otherwise, print "Task B"
+# Here, the number decides what code to run. This is what conditional logic does.
+#
+# 🧱 Types of Conditional Statements
+#
+# 🔹 1. if Statement
+# Runs a block of code only if the condition is True.
+# number = int(input("Enter a number: "))
+# if number > 10:
+#     print("Task A")
+#
+# 🔹 2. if-else Statement
+# Runs one block if condition is True, another block if False.
+# number = int(input("Enter a number: "))
+# if number > 10:
+#     print("Task A")
+# else:
+#     print("Task B")
+#
+# 🔹 3. if-elif-else Statement
+# Use when you have multiple conditions to check in order.
+# marks = int(input("Enter your marks: "))
+# if marks >= 90:
+#     print("Grade A")
+# elif marks >= 70:
+#     print("Grade B")
+# elif marks >= 50:
+#     print("Grade C")
+# else:
+#     print("Fail")
+#
+# ⚠️ Python Syntax Rules
+# - Use a colon : at the end of if, elif, and else lines.
+# - The code under them must be indented (usually 4 spaces).
+#
+# ✅ Summary Table
+# Statement        Description
+# if               Runs when condition is True
+# if-else          One block runs if True, another if False
+# if-elif-else     Multiple conditions, runs only one match
 
 # -------------------- END --------------------
