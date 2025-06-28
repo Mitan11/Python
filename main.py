@@ -956,3 +956,293 @@ Both triple quotes work the same way.
 
 # -------------------- END --------------------
 
+# -------------------- DATA STRUCTURES IN PYTHON --------------------
+# 📦 Data Structures in Python
+# ✅ What are Data Structures?
+# Data structures are used to store, organize, and manage data efficiently. 
+# Python provides many built-in data structures that make your coding life easier.
+#
+# 🔹 Built-in Data Structures in Python
+# Name        What it does                    Example
+# List        Stores ordered, changeable data [1, 2, 3]
+# Tuple       Stores ordered, unchangeable    (1, 2, 3)
+# Set         Stores unique, unordered data   {1, 2, 3}
+# Dictionary  Stores data in key-value pairs  {"name": "Akarsh"}
+#
+# 📋 Focus: List in Python
+# ✅ Key Properties of Lists
+# Property      Meaning
+# Mutable       You can change values (add/remove/update) after creating the list.
+# Duplicates    Allows repeated elements.
+# Ordered       Maintains the order of items (indexing works).
+# Heterogeneous Can store mixed data types (e.g., numbers, strings, etc.).
+#
+# 🔹 List Syntax
+# my_list = [5, 2, 9, 1, 5, 6]  # Square brackets
+#
+# 🔹 List Indexing & Slicing (Same as Strings)
+# print(my_list[0])    # Access by index
+# print(my_list[-1])   # Negative indexing
+# print(my_list[1:4])  # Slicing from index 1 to 3
+#
+# 🛠️ Common List Methods
+# numbers = [5, 2, 9, 1, 5, 6]  # Initial list
+#
+# numbers.append(10)             # Adds 10 to the end
+# numbers.insert(2, 15)          # Inserts 15 at index 2
+# numbers.extend([20, 25, 30])   # Adds multiple elements at the end
+# numbers.remove(5)              # Removes first occurrence of 5
+# popped_item = numbers.pop(3)   # Removes and returns element at index 3
+# index = numbers.index(6)       # Finds index of value 6
+# count_5 = numbers.count(5)     # Counts how many times 5 appears
+# numbers.sort()                 # Sorts the list in ascending order
+# numbers.reverse()              # Reverses the order of the list
+# new_numbers = numbers.copy()   # Makes a copy of the list
+# numbers.clear()                # Removes all elements
+#
+# 🔁 List Traversing (Looping)
+# A. Using index:
+# for i in range(len(numbers)):
+#     print(numbers[i])
+#
+# B. Directly:
+# for num in numbers:
+#     print(num)
+#
+# 🧠 Summary
+# ✅ Use lists to store ordered, changeable collections.
+# ✅ Use methods like .append(), .pop(), .sort() to manipulate them.
+# ✅ You can loop using for, just like strings.
+# ✅ Lists support indexing, slicing, and mixed data types.
+
+# -------------------- TUPLE IN PYTHON --------------------
+# 📦 Tuple in Python
+# ✅ What is a Tuple?
+# A tuple is a built-in data structure in Python that stores a collection of values. 
+# It is similar to a list, but immutable (cannot be changed after creation).
+#
+# 🧠 Tuple Properties
+# Property      Description
+# Immutable     You cannot change, add, or remove elements once a tuple is created.
+# Duplicates    Tuples allow repeated values (same as lists).
+# Ordered       Tuples maintain the order of elements, and support indexing/slicing.
+# Heterogeneous You can store different data types (int, string, list, etc.) in one tuple.
+#
+# 🧪 Syntax Example:
+# my_tuple = (10, 20, 30, 10, "Hello", [1, 2])
+# ✅ Yes, you can even store a list inside a tuple, though the tuple itself remains immutable.
+#
+# 🔁 Tuple Traversing
+# ✅ Just like lists and strings:
+# # Using index
+# for i in range(len(my_tuple)):
+#     print(my_tuple[i])
+#
+# # Directly
+# for item in my_tuple:
+#     print(item)
+#
+# 🔧 Tuple Methods (Only 2 Main Ones)
+# 1️⃣ count() – Counts occurrences of a value
+# my_tuple = (10, 20, 10, 30)
+# print(my_tuple.count(10))  # Output: 2
+#
+# 2️⃣ index() – Returns the first index of a value
+# print(my_tuple.index(30))  # Output: 3
+#
+# 📌 When to Use a Tuple?
+# ✅ When you want to store a collection of values but don't want them to change.
+# ✅ Ideal for fixed data, like days of the week, RGB color codes, etc.
+# ✅ More memory-efficient than lists.
+#
+# 🆚 Tuple vs List (Quick Recap)
+# Feature        List        Tuple
+# Mutable        ✅ Yes      ❌ No
+# Syntax         [1, 2, 3]  (1, 2, 3)
+# Methods        Many        Only count() & index()
+# Use case       General purpose    Fixed values
+
+# -------------------- SET IN PYTHON --------------------
+# 🧺 Set in Python
+# ✅ What is a Set?
+# A Set in Python is an unordered collection of unique and immutable elements.
+# It's commonly used when you need to store items without duplicates.
+#
+# 🧠 Set Properties
+# Property              Description
+# ✅ Mutable            You can add or remove elements after creation.
+# ❌ No Duplicates      Each element is unique, duplicates are removed automatically.
+# ❌ Unordered          Elements don't maintain insertion order (can't use indexing).
+# 🧩 Semi-Heterogeneous Can contain different data types, but only hashable types (e.g., numbers, strings, tuples).
+# ❌ You cannot store lists or dictionaries inside sets.
+#
+# 🧪 Set Syntax
+# my_set = {1, 2, 3}
+# empty_set = set()  # NOTE: {} creates a dictionary, not a set
+#
+# 🔄 How Set Stores Data Internally
+# Each value is passed through Python's built-in hash() function.
+# These hashes are used to determine where to store items in memory.
+# Because hash order isn't predictable, set items appear in random order.
+#
+# 🔁 Set Traversing
+# Since sets don't have indexes, you must use a loop:
+# for item in my_set:
+#     print(item)  # Order is not guaranteed
+#
+# 🛠️ Common Set Methods
+# s = {1, 2, 3}
+# s.add(4)           # ➕ Adds 4 to the set
+# s.remove(2)        # ➖ Removes 2 (❗Raises error if not found)
+# s.discard(5)       # ➖ Removes 5 (✅ No error if not found)
+# popped = s.pop()   # ❌ Removes a random item
+# s.clear()          # 🔁 Empties the entire set
+#
+# 🔗 Special Set Operations (Between Two Sets)
+# These are powerful methods that help compare and combine sets:
+# a = {1, 2, 3}
+# b = {3, 4, 5}
+# a.union(b)         # {1, 2, 3, 4, 5}
+# a.intersection(b)  # {3}
+# a.difference(b)    # {1, 2}
+# a.symmetric_difference(b)  # {1, 2, 4, 5}
+#
+# Operation               Symbol    Description
+# Union                   |         All elements from both sets
+# Intersection            &         Common elements only
+# Difference              -         Elements in A but not in B
+# Symmetric Difference    ^         All elements except the common ones
+#
+# 📌 When to Use a Set?
+# ✅ When you need fast membership testing (e.g., if x in set).
+# ✅ When you want to remove duplicates automatically.
+# ✅ When performing mathematical set operations like union, intersection, etc.
+#
+# 🔗 Set Operations in Python
+# Python allows us to perform set theory operations between two sets easily using methods and shortcuts (operators).
+#
+# 📘 Example:
+# A = {1, 2, 3}
+# B = {3, 4, 5}
+#
+# ✅ 1. Union — A ∪ B
+# Combines all unique elements from both sets.
+# A.union(B)        # {1, 2, 3, 4, 5}
+# A | B             # Shortcut
+#
+# ✅ 2. Intersection — A ∩ B
+# Returns only the elements common to both sets.
+# A.intersection(B) # {3}
+# A & B             # Shortcut
+#
+# ✅ 3. Difference — A - B
+# Returns elements that are in A but not in B.
+# A.difference(B)   # {1, 2}
+# A - B             # Shortcut
+#
+# ✅ 4. Symmetric Difference — A △ B
+# Returns elements that are in A or B, but not in both.
+# A.symmetric_difference(B)  # {1, 2, 4, 5}
+# A ^ B                      # Shortcut
+#
+# 📌 Summary Table
+# Operation               Method                    Operator Shortcut
+# Union                   A.union(B)               A | B
+# Intersection            A.intersection(B)        A & B
+# Difference (A minus B)  A.difference(B)          A - B
+# Symmetric Difference    A.symmetric_difference(B) A ^ B
+#
+# 💡 Extra Tips:
+# You can chain these operations like:
+# (A | B) - {1}  # Union of A and B, then remove 1
+# Set operations are especially useful in:
+# - Filtering values
+# - Finding duplicates
+# - Comparing user inputs or data sets
+
+# -------------------- DICTIONARIES IN PYTHON --------------------
+# 📘 Dictionaries in Python
+# A dictionary is a built-in data structure in Python used to store key-value pairs. 
+# Think of it like a real-life dictionary — you look up a word (key), and you get its meaning (value).
+#
+# 🧠 Dictionary Powers
+# Feature        Explanation
+# Mutable        You can change, add, or remove key-value pairs after creation
+# Unique Keys    Each key must be unique; values can be duplicated
+# Ordered        Maintains insertion order (since Python 3.7+)
+# Heterogeneous  Keys and values can be of different data types
+#
+# 🛠️ Dictionary Syntax
+# student = {
+#     "name": "Akarsh",
+#     "age": 21,
+#     "marks": [85, 90, 95],
+#     "details": {"city": "Delhi", "college": "IIT"}
+# }
+# "name", "age" etc. are keys
+# "Akarsh", 21, [85, 90, 95] are values
+#
+# 🧾 CRUD Operations (Create, Read, Update, Delete)
+# # Create/Add
+# student["course"] = "Python"
+#
+# # Read
+# print(student["name"])  # Output: Akarsh
+#
+# # Update
+# student["age"] = 22
+#
+# # Delete
+# del student["marks"]
+#
+# 🔁 Dictionary Traversing
+# By Keys (default):
+# for key in student:
+#     print(key, student[key])
+#
+# By Keys & Values:
+# for key, value in student.items():
+#     print(f"{key} -> {value}")
+#
+# By Values Only:
+# for value in student.values():
+#     print(value)
+#
+# 🧰 Useful Dictionary Methods
+# Method              Description
+# dict.get(key)       Returns value for key, or None if not found
+# dict.keys()         Returns a view of all keys
+# dict.values()       Returns a view of all values
+# dict.items()        Returns a view of (key, value) pairs
+# dict.update(other)  Updates dictionary with another
+# dict.pop(key)       Removes key and returns its value
+# dict.clear()        Removes all items from the dictionary
+#
+# 🧩 Dictionary Practice Questions
+# 🔹 1. Merge Two Dictionaries
+# dict1 = {"a": 10, "b": 20}
+# dict2 = {"c": 30, "d": 40}
+# merged = {**dict1, **dict2}
+# print(merged)
+#
+# 🔹 2. Sum All Values
+# data = {"a": 10, "b": 20, "c": 30}
+# print(sum(data.values()))  # Output: 60
+#
+# 🔹 3. Count Frequency of Elements
+# elements = ["a", "b", "a", "c", "b", "a"]
+# freq = {}
+# for item in elements:
+#     freq[item] = freq.get(item, 0) + 1
+# print(freq)  # {'a': 3, 'b': 2, 'c': 1}
+#
+# 🔹 4. Combine Two Dictionaries (Add Values for Common Keys)
+# dict1 = {"a": 100, "b": 200, "c": 300}
+# dict2 = {"a": 300, "b": 200, "d": 400}
+# combined = dict1.copy()
+# for key, value in dict2.items():
+#     combined[key] = combined.get(key, 0) + value
+# print(combined)
+# # Output: {'a': 400, 'b': 400, 'c': 300, 'd': 400}
+
+# -------------------- END --------------------
