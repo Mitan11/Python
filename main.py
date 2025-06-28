@@ -858,3 +858,101 @@ Both triple quotes work the same way.
 
 # -------------------- END --------------------
 
+# -------------------- FUNCTIONS IN PYTHON --------------------
+# 🔧 Functions in Python
+# ✅ What is a Function?
+# A function is a reusable block of code that performs a specific task.
+# It avoids repetition and keeps your program organized and readable.
+#
+# 🔹 Built-in vs User-Defined Functions
+# Built-in functions: Already provided by Python
+# → Examples: print(), input(), len(), range()
+#
+# User-defined functions: Functions you create using the def keyword.
+#
+# 🧠 Syntax of a Function
+# def function_name():
+#     # block of code
+#
+# 🔸 Example:
+# def greet():
+#     print("Hello, welcome!")
+# greet()  # Calling the function
+#
+# 🧺 Parameters vs Arguments
+# Parameters: Variables listed when defining a function.
+# Arguments: Values you pass when calling the function.
+#
+# 🔸 Example:
+# def greet(name):       # 'name' is a parameter
+#     print("Hello", name)
+# greet("Alice")         # "Alice" is an argument
+#
+# 🧩 Types of Arguments
+# There are 3 main types of arguments:
+#
+# 1️⃣ Positional Arguments
+# Values are assigned in the same order as parameters.
+# def add(a, b):
+#     print(a + b)
+# add(5, 3)   # a = 5, b = 3
+#
+# 2️⃣ Default Arguments
+# You can give a default value to parameters.
+# If no argument is passed, default is used.
+# def greet(name="User"):
+#     print("Hello", name)
+# greet()         # Output: Hello User
+# greet("Mitan")  # Output: Hello Mitan
+#
+# 3️⃣ Keyword Arguments
+# Pass arguments using key = value format.
+# Order doesn't matter.
+# def student(name, age):
+#     print(f"{name} is {age} years old.")
+# student(age=20, name="Akarsh")
+#
+# 🔁 Summary Table
+# Type            Description                                    Order Matters?
+# Positional      Match arguments to parameters by position     ✅ Yes
+# Default         Uses default if argument not provided         ❌ No
+# Keyword         Pass using key=value, order doesn't matter    ❌ No
+#
+# 🏗️ 6 Types of Functions
+#
+# 1️⃣ Function with No Parameters and No Return
+# def greet():
+#     print("Hello!")
+# greet()
+#
+# 2️⃣ Function with Parameters but No Return
+# def greet(name):
+#     print(f"Hello, {name}!")
+# greet("Mitan")
+#
+# 3️⃣ Function with Parameters and Return
+# def add(a, b):
+#     return a + b
+# result = add(5, 3)
+# print(result)  # 8
+#
+# 4️⃣ Function with Default Parameters
+# def greet(name="User", age=18):
+#     print(f"Hello {name}, you are {age} years old.")
+# greet()  # Uses defaults
+# greet("Mitan", 20)  # Uses provided values
+#
+# 5️⃣ Function with Variable Arguments (*args)
+# def sum_all(*numbers):
+#     return sum(numbers)
+# result = sum_all(1, 2, 3, 4, 5)
+# print(result)  # 15
+#
+# 6️⃣ Function with Keyword Arguments (**kwargs)
+# def student_info(**info):
+#     for key, value in info.items():
+#         print(f"{key}: {value}")
+# student_info(name="Mitan", age=20, grade="A")
+
+# -------------------- END --------------------
+
