@@ -617,3 +617,244 @@ Both triple quotes work the same way.
 # if-elif-else     Multiple conditions, runs only one match
 
 # -------------------- END --------------------
+
+# -------------------- LOOPS IN PYTHON --------------------
+# 🔁 Loops in Python
+# ✅ What Are Loops?
+# Loops let you run a block of code multiple times without writing it again and again.
+#
+# For example, instead of writing:
+# print("Hello")
+# print("Hello")
+# print("Hello")
+# # ... 100 times!
+# You can simply do:
+# for i in range(100):
+#     print("Hello")
+#
+# 🔄 Types of Loops in Python
+# There are 2 main types of loops:
+# - for loop: Use when you know how many times to run.
+# - while loop: Use when you don't know how many times, but have a condition.
+#
+# 🪣 Understanding with Bucket Example:
+# You have two buckets and a mug.
+# If you know you need 4 mugs, you use a for loop.
+# If you don't know how many mugs, but stop when the bucket is full, you use a while loop.
+#
+# 1️⃣ for Loop
+# ✅ Syntax:
+# for i in range(start, stop, step):
+#     # code block
+# start: where to begin (default is 0)
+# stop: where to end (not included)
+# step: how many numbers to skip (default is 1)
+#
+# 🔹 Example: Print numbers 1 to 5
+# for i in range(1, 6):
+#     print(i)
+#
+# 🔹 Example: Print "Hello" 10 times
+# for i in range(10):
+#     print("Hello")
+#
+# 2️⃣ while Loop
+# ✅ Syntax:
+# while condition:
+#     # code block
+# The loop will run as long as the condition is True.
+#
+# 🔹 Example: Print numbers from 1 to 5
+# i = 1
+# while i <= 5:
+#     print(i)
+#     i += 1
+#
+# 🔤 Loops with Strings
+# There are two ways to loop through a string:
+#
+# A. Using index (with range)
+# name = "Python"
+# for i in range(len(name)):
+#     print(name[i])
+#
+# B. Directly over the string
+# name = "Python"
+# for char in name:
+#     print(char)
+# This method is shorter and gives characters directly.
+#
+# 📌 Summary
+# Loop Type   Use When You...                Example
+# for         Know how many times to repeat  for i in range(5)
+# while       Repeat until a condition False while x < 5
+#
+# Loop Use    Task                          Example
+# Numbers     Print 1 to 10                 range(1, 11)
+# Strings     Character-by-character loop   for c in "Python"
+
+# -------------------- END --------------------
+
+# -------------------- LOOP CONTROL STATEMENTS IN PYTHON --------------------
+# 🚦 Loop Control Statements in Python
+# These special keywords help you control the behavior of a loop:
+#
+# break – Stops the loop completely.
+# continue – Skips the current iteration, continues to next.
+# else (with loop) – Runs only if loop didn't break.
+#
+# 🛑 1. break – Exit the loop early
+# 📖 Definition:
+# break is used to immediately stop the loop when a condition is met.
+#
+# 🏁 Example: Race Track & Rain
+# for lap in range(1, 21):
+#     if lap == 16:
+#         print("It started raining. Race stopped!")
+#         break
+#     print(f"Completed lap {lap}")
+# ✅ Output:
+# Completed lap 1
+# Completed lap 2
+# ...
+# Completed lap 15
+# It started raining. Race stopped!
+#
+# ⏭️ 2. continue – Skip one loop round
+# 📖 Definition:
+# continue skips the current iteration and moves to the next one.
+#
+# 🏃 Example: Skip Lap 16
+# for lap in range(1, 21):
+#     if lap == 16:
+#         print("Skipped lap 16 due to injury.")
+#         continue
+#     print(f"Completed lap {lap}")
+# ✅ Output:
+# Completed lap 1
+# ...
+# Completed lap 15
+# Skipped lap 16 due to injury.
+# Completed lap 17
+# ...
+# Completed lap 20
+#
+# ➕ 3. else with Loops – Run after loop only if no break
+# 📖 Definition:
+# You can use else after a loop — it runs only if the loop finishes completely without hitting a break.
+#
+# ✅ Example A: Loop without break
+# for i in range(5):
+#     print(i)
+# else:
+#     print("Loop completed fully without break.")
+# ✅ Output:
+# 0
+# 1
+# 2
+# 3
+# 4
+# Loop completed fully without break.
+#
+# ❌ Example B: Loop with break
+# for i in range(5):
+#     if i == 3:
+#         break
+#     print(i)
+# else:
+#     print("This will NOT be printed.")
+# ✅ Output:
+# 0
+# 1
+# 2
+#
+# 🧠 Summary Table
+# Statement   What it does                        When to use
+# break       Exits the loop early                When a condition is met to stop loop
+# continue    Skips one iteration and continues   When you want to skip specific round
+# else        Runs after the loop ends w/o break  To confirm loop ran fully
+
+# -------------------- END --------------------
+
+# -------------------- WHILE LOOP IN PYTHON --------------------
+# 🔁 while Loop in Python
+# 📌 What is a while loop?
+# The while loop repeats a block of code as long as a condition is True.
+# Use it when you don't know how many times the loop should run — you only know the condition to keep going.
+#
+# 🧠 Syntax:
+# while condition:
+#     # code to repeat
+#
+# 🔹 Example 1: Print numbers from 1 to 5
+# i = 1
+# while i <= 5:
+#     print(i)
+#     i += 1
+# 🟢 Output:
+# 1
+# 2
+# 3
+# 4
+# 5
+#
+# 🔹 Example 2: while with break
+# i = 1
+# while i <= 10:
+#     if i == 6:
+#         print("Loop stopped at 6")
+#         break
+#     print(i)
+#     i += 1
+# 🟢 Output:
+# 1
+# 2
+# 3
+# 4
+# 5
+# Loop stopped at 6
+#
+# 🔹 Example 3: while with continue
+# i = 0
+# while i < 5:
+#     i += 1
+#     if i == 3:
+#         continue
+#     print(i)
+# 🟢 Output:
+# 1
+# 2
+# 4
+# 5
+# (3 was skipped)
+#
+# 🔹 Example 4: while with else
+# i = 1
+# while i <= 3:
+#     print(i)
+#     i += 1
+# else:
+#     print("Loop ended naturally.")
+# 🟢 Output:
+# 1
+# 2
+# 3
+# Loop ended naturally.
+#
+# 🔹 Example 5: while loop as input validator
+# password = ""
+# while password != "1234":
+#     password = input("Enter password: ")
+# print("Access granted!")
+#
+# 🤔 When to use while vs for:
+# Use Case                    Loop Type
+# You know how many times     for loop
+# You don't know, but you have a condition    while loop
+#
+# ✅ Now you're ready to identify what type of loop to use:
+# Fixed count → for
+# Unknown repetitions with condition → while
+
+# -------------------- END --------------------
+
