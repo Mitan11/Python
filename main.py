@@ -1245,4 +1245,125 @@ Both triple quotes work the same way.
 # print(combined)
 # # Output: {'a': 400, 'b': 400, 'c': 300, 'd': 400}
 
+# -------------------- EXCEPTION HANDLING IN PYTHON --------------------
+# 🛠️ Exception Handling in Python
+# 🔹 What is Exception Handling?
+# Exception Handling in Python is a mechanism that allows you to gracefully respond to unexpected errors during program execution — rather than crashing the entire program.
+# ✅ It helps maintain program stability and user-friendly error messages.
+#
+# ⚠️ Errors vs. Exceptions
+# Type        Description                                    Can Be Handled?
+# Errors      Syntax or coding mistakes that prevent code from running.    ❌ No
+# Exceptions  Run-time issues that interrupt program execution unexpectedly. ✅ Yes
+#
+# 🔸 Examples of Errors (Uncatchable)
+# Error Type        Example                 Description
+# SyntaxError       if True print("Hi")    Missing : or incorrect structure
+# IndentationError  Improper indentation    Indentation doesn't match Python rules
+# TabError          Mixing tabs and spaces  Using both tabs and spaces for indentation
+#
+# 🔸 Examples of Exceptions (Catchable)
+# Exception Type        When It Occurs
+# ZeroDivisionError     Dividing a number by zero
+# ValueError           Converting a string to an invalid number
+# TypeError            Adding string to an integer
+# IndexError           Accessing invalid list index
+# KeyError             Accessing non-existent dictionary key
+# FileNotFoundError    Trying to open a missing file
+#
+# 🧱 Keywords in Exception Handling
+# Keyword   Purpose
+# try       Wrap the block of code that might cause an exception
+# except    Handle the exception if it occurs
+# else      Executes if no exception occurs in the try block
+# finally   Executes always, even if an exception occurs or not
+# raise     Manually trigger an exception
+#
+# 📌 Syntax Template
+# try:
+#     # Risky code
+# except SomeException:
+#     # Handle the error
+# else:
+#     # Run if no error
+# finally:
+#     # Always runs (cleanup, etc.)
+#
+# 💡 Example: Full Exception Handling
+# try:
+#     num = int(input("Enter a number: "))
+#     result = 10 / num
+# except ZeroDivisionError:
+#     print("❌ You cannot divide by zero.")
+# except ValueError:
+#     print("❌ Please enter a valid number.")
+# else:
+#     print("✅ Result is:", result)
+# finally:
+#     print("✅ This will always run.")
+# Output Cases:
+# Input: 0 → Division by zero handled
+# Input: abc → ValueError handled
+# Input: 5 → Works fine, executes else
+# Any case → finally block executes
+#
+# 🧨 Raising Your Own Exceptions
+# You can create your own error conditions using raise.
+# age = int(input("Enter your age: "))
+# if age < 0:
+#     raise ValueError("❌ Age cannot be negative!")
+# print("✅ Age is valid.")
+#
+# ✅ Best Practices
+# Practice                    Reason
+# Always use specific exceptions    Avoid catching general Exception unless absolutely needed
+# Use finally for cleanup          E.g., closing files, releasing resources
+# Don't suppress all exceptions    Debugging becomes difficult
+# Avoid silent fails               Always log or print something when handling exceptions
+#
+# 📚 Extra: Multiple Except Blocks
+# You can catch different exceptions differently:
+# try:
+#     with open("file.txt") as f:
+#         data = f.read()
+# except FileNotFoundError:
+#     print("❌ File not found.")
+# except PermissionError:
+#     print("❌ You don't have permission to read the file.")
+# except Exception as e:
+#     print("❌ Some other error occurred:", e)
+#
+# 📎 Summary
+# Feature   Use
+# try       Wrap code that might crash
+# except    Handle known errors
+# else      Run when everything goes fine
+# finally   Cleanup, close connections, files, etc.
+# raise     Create and raise custom error messages
+#
+# 💡 Practical Examples:
+# 🔹 Example 1: Division with Exception Handling
+# a = int(input("tell your number :- "))
+# try:
+#     print(10/a)
+# except Exception as err:
+#     print(f"sorry there is an err as {err}")
+# else:
+#     print("good there is no exception")
+# finally:
+#     print("i will run no matter what")
+# print("ok i have done the division")
+#
+# 🔹 Example 2: Age Validation with Custom Exception
+# age = int(input("tell your age :- "))
+# try:
+#     if age < 10 or age > 18:
+#         raise ValueError("your age must be between 10 and 18")
+#     else:
+#         print("welcome to the club")
+# except Exception as err:
+#     print(f"an error occured as {err}")
+# print("the club will start soon")
+
 # -------------------- END --------------------
+
