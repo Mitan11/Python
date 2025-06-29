@@ -1367,3 +1367,98 @@ Both triple quotes work the same way.
 
 # -------------------- END --------------------
 
+# -------------------- FILE HANDLING IN PYTHON --------------------
+# 📂 File Handling in Python
+# 📘 What Are Files?
+# Files are named storage units on disk that can store data. They come with various extensions:
+# .txt → Text file
+# .py → Python script
+# .csv, .mp3, .json → Others
+#
+# Python lets us interact with files to Create, Read, Update, and Delete content. 
+# This is known as File Handling or CRUD operations.
+#
+# 🔓 Opening Files in Python
+# Use the open() function to work with files:
+# file = open("filename.txt", "mode")
+#
+# Common File Modes
+# Mode   Description
+# 'r'    Read mode (default) – file must exist
+# 'w'    Write mode – creates or overwrites the file
+# 'a'    Append mode – adds to the end of the file
+# 'x'    Exclusive creation – creates a new file, fails if exists
+#
+# 🧠 Tip: You can combine these with 'b' (binary) or 't' (text – default), like 'rb', 'wt', etc.
+#
+# 📖 Reading a File
+# f = open("data.txt", "r")
+# print(f.read())         # Reads entire file
+# f.close()
+#
+# Useful reading methods:
+# f.read()     # Reads entire file as string
+# f.readline() # Reads one line
+# f.readlines()# Returns a list of all lines
+#
+# ✍️ Writing to a File
+# f = open("data.txt", "w")     # Overwrites if file exists
+# f.write("Hello, world!")
+# f.close()
+#
+# Use 'a' mode if you want to append instead of overwrite:
+# f = open("data.txt", "a")
+# f.write("\nNew line added")
+# f.close()
+#
+# ✅ Best Practice: Using with
+# Using with ensures files are closed automatically:
+# with open("data.txt", "r") as f:
+#     content = f.read()
+#     print(content)
+# No need for f.close() — Python handles it!
+#
+# ❌ File Closing Reminder
+# If not using with, always close the file manually:
+# f = open("file.txt", "r")
+# # Do operations
+# f.close()  # Important!
+#
+# 📌 Common Errors in File Handling
+# Error               Description
+# FileNotFoundError   Trying to read a non-existent file
+# PermissionError     No rights to access or modify file
+# IsADirectoryError   Provided a folder instead of a file
+#
+# You can handle these using try-except:
+# try:
+#     with open("test.txt", "r") as f:
+#         print(f.read())
+# except FileNotFoundError:
+#     print("File not found!")
+#
+# 📂 File Object Methods Summary
+# Method        Description
+# .read()       Reads entire content
+# .readline()   Reads one line
+# .readlines()  Reads all lines into a list
+# .write()      Writes a string
+# .writelines() Writes a list of strings
+# .seek()       Moves the file pointer
+# .tell()       Returns current pointer position
+# .close()      Closes the file manually
+#
+# 🧪 Real-World Use Case
+# Let's say you want to create a log file that keeps track of each time your program runs:
+# from datetime import datetime
+# with open("log.txt", "a") as log:
+#     log.write(f"Program run at {datetime.now()}\n")
+#
+# 🔚 Conclusion
+# Use open() with appropriate mode for the task
+# Always close files — or better, use with block
+# File handling is essential for reading/writing persistent data
+# Use exception handling to avoid crashes from file errors
+
+# -------------------- END --------------------
+
