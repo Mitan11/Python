@@ -1462,3 +1462,337 @@ Both triple quotes work the same way.
 
 # -------------------- END --------------------
 
+# -------------------- OBJECT-ORIENTED PROGRAMMING (OOP) IN PYTHON --------------------
+# 🔸 What is OOP (Object-Oriented Programming) in Python?
+# 🧠 Concept:
+# OOP is a programming paradigm centered around objects, which bundle data (attributes) and functions (methods) together.
+# It helps structure code in a reusable, organized, and modular way.
+#
+# 🧾 Why OOP?
+# Let's compare different approaches to solve a problem like adding numbers:
+#
+# Imperative Approach:
+# Use simple variables directly.
+# a = 2
+# b = 3
+# print(a + b)
+# 🔴 Problem: You'll need new variables every time.
+#
+# Functional Approach:
+# Use functions to avoid repeating code.
+# def add(x, y):
+#     return x + y
+# ✅ Better! You can now reuse logic.
+#
+# Object-Oriented Approach (OOP):
+# Combine both data and logic in one entity (an object).
+# class Calculator:
+#     def add(self, x, y):
+#         return x + y
+# 🟢 Best for large programs – maintainable, scalable, reusable.
+#
+# 🧱 Key Concepts in OOP
+#
+# 🔹 Class:
+# A blueprint for creating objects.
+# Think of a class like a house blueprint – it defines the structure, but doesn't create the house.
+# class Student:
+#     name = "Riya"
+#
+# 🔹 Object:
+# An instance of a class – the actual house built from the blueprint.
+# s1 = Student()  # s1 is an object
+# print(s1.name)
+#
+# ✨ Attributes and Methods
+# Attributes: Variables inside the class.
+# Methods: Functions inside the class.
+# class Student:
+#     def __init__(self, name):  # constructor method
+#         self.name = name       # instance attribute
+#
+#     def greet(self):           # instance method
+#         print("Hello", self.name)
+#
+# 🔹 Accessing Class Components
+# You create an object from the class:
+# s = Student("Riya")
+# s.greet()  # Output: Hello Riya
+
+# -------------------- END --------------------
+
+# -------------------- OBJECTS & OOP --------------------
+# 🧱 Objects in OOP
+# Concept: A class is a blueprint (like a bag factory's requirements: material, zips, pockets).
+# An object is a specific instance created from that blueprint (e.g., a Reebok bag with leather, 2 zips, 3 pockets).
+#
+# Example:
+# class Bag:
+#     def __init__(self, material, zips, pockets):
+#         self.material = material
+#         self.zips = zips
+#         self.pockets = pockets
+#
+# bag1 = Bag("leather", 2, 3)  # 'bag1' is an object
+#
+# 🔧 What is a Constructor?
+# The constructor in Python is the __init__() method.
+# It runs automatically when you create an object and initializes its attributes.
+# 'self' refers to the current object.
+#
+# Example:
+# class Bag:
+#     def __init__(self, material, zips, pockets):
+#         self.material = material
+#         self.zips = zips
+#         self.pockets = pockets
+#
+# bag1 = Bag("leather", 2, 3)
+#
+# 🧩 Attributes and Methods
+# Types of Attributes:
+# 1. Class Attribute: Defined directly inside the class (outside any method), shared by all objects.
+#    Example:
+#    class Car:
+#        wheels = 4  # Class attribute
+#
+# 2. Instance Attribute: Defined using self inside the constructor or other methods, unique to each object.
+#    Example:
+#    class Car:
+#        def __init__(self, color):
+#            self.color = color  # Instance attribute
+#
+# ⚙️ Types of Methods:
+# 1. Instance Method: Works with the object, first parameter is self.
+#    Example:
+#    class MyClass:
+#        def greet(self):
+#            print("This is an instance method")
+#
+# 2. Class Method: Works with the class, not a specific object. Uses @classmethod, first parameter is cls.
+#    Example:
+#    class MyClass:
+#        @classmethod
+#        def show_info(cls):
+#            print("This is a class method")
+#
+# 3. Static Method: Doesn't access class or object. Uses @staticmethod, acts like a regular function inside the class.
+#    Example:
+#    class MyClass:
+#        @staticmethod
+#        def utility():
+#            print("This is a static method")
+#
+# Summary Table:
+# | Type            | Decorator      | First Param | Accesses | Use Case                        |
+# |-----------------|---------------|-------------|----------|---------------------------------|
+# | Instance Method | (none)        | self        | object   | Most methods, uses object data  |
+# | Class Method    | @classmethod  | cls         | class    | Factory methods, class-wide ops |
+# | Static Method   | @staticmethod | (none)      | neither  | Utility/helper functions        |
+#
+# -------------------- END OBJECTS & OOP --------------------
+
+# -------------------- INHERITANCE & POLYMORPHISM IN PYTHON --------------------
+# 🧬 Inheritance in Python
+# Inheritance means passing properties or behaviors from one entity to another.
+# In Python, this happens between classes: a child class inherits from a parent class.
+#
+# ✅ Benefits:
+# - Code Reusability
+# - Organized Structure
+# - Easy to Maintain and Extend
+#
+# 📘 Syntax of Inheritance
+# class Parent:
+#     def speak(self):
+#         print("I can speak!")
+#
+# class Child(Parent):  # Inheriting Parent
+#     pass
+#
+# c = Child()
+# c.speak()  # Output: I can speak!
+# The child class now has all the properties (attributes & methods) of the parent.
+#
+# 🏗️ Constructor in Inheritance
+# ✔ Inheriting Parent Constructor
+# class Parent:
+#     def __init__(self, name):
+#         self.name = name
+#
+# class Child(Parent):
+#     def display(self):
+#         print(f"My name is {self.name}")
+# # The child automatically uses the parent's constructor.
+#
+# ✔ Using super() for Child's Own Constructor
+# class Parent:
+#     def __init__(self, name):
+#         self.name = name
+#
+# class Child(Parent):
+#     def __init__(self, name, age):
+#         super().__init__(name)  # Calls Parent's constructor
+#         self.age = age
+#     def display(self):
+#         print(f"My name is {self.name}, and I am {self.age} years old.")
+#
+# 👨‍👩‍👦 Types of Inheritance
+# 1. Single Inheritance: One parent, one child.
+#    class Parent:
+#        pass
+#    class Child(Parent):
+#        pass
+#
+# 2. Multiple Inheritance: Two parents, one child.
+#    class Father:
+#        def skills(self):
+#            print("Coding")
+#    class Mother:
+#        def skills(self):
+#            print("Cooking")
+#    class Child(Father, Mother):
+#        def show(self):
+#            print("I have multiple skills")
+#    # Python follows MRO (Method Resolution Order) – left to right.
+#
+# 3. Multilevel Inheritance: Chain of classes: Grandparent → Parent → Child.
+#    class Grandparent:
+#        def heritage(self):
+#            print("From Grandparent")
+#    class Parent(Grandparent):
+#        pass
+#    class Child(Parent):
+#        pass
+#
+# -------------------- POLYMORPHISM IN PYTHON --------------------
+# 🧠 Polymorphism in Python
+# Polymorphism means "many forms" — same interface, different behavior depending on the object.
+#
+# 🚫 Method Overloading (Not Supported)
+# Only the last definition is kept:
+# class Demo:
+#     def greet(self, name):
+#         print("Hi", name)
+#     def greet(self):  # This will overwrite the previous
+#         print("Hello")
+#
+# 🔁 Method Overriding (✅ Supported)
+# A child class can redefine a parent method.
+# class Animal:
+#     def sound(self):
+#         print("Some sound")
+# class Dog(Animal):
+#     def sound(self):
+#         print("Bark")
+# d = Dog()
+# d.sound()  # Output: Bark
+#
+# 🦆 Duck Typing in Python
+# "If it walks like a duck and quacks like a duck, it's a duck."
+# The object is valid as long as it has the expected method, regardless of its class.
+# class Duck:
+#     def talk(self):
+#         print("Quack")
+# class Human:
+#     def talk(self):
+#         print("Hello")
+# def speak(entity):
+#     entity.talk()
+# speak(Duck())    # Output: Quack
+# speak(Human())   # Output: Hello
+#
+# ✅ Recap
+# Concept           Meaning/Example
+# Inheritance       Child class gets parent's properties
+# Constructor       __init__() method
+# super()           Calls parent constructor
+# Polymorphism      Same method name, different behavior
+# Method Overriding Redefine parent method in child
+# Duck Typing       Type doesn't matter, behavior does
+#
+# -------------------- END INHERITANCE & POLYMORPHISM --------------------
+
+# -------------------- ENCAPSULATION, ABSTRACTION & DUNDER METHODS --------------------
+# 🔐 Encapsulation in Python
+# Encapsulation = Data + Code bundled inside a class
+# Helps to hide internal details and protect data from accidental changes.
+# Promotes clean code and gives better control.
+#
+# 🔒 Access Modifiers in Python
+# Access modifiers define how attributes and methods can be accessed:
+# Type       Syntax Example     Accessible From         Notes
+# Public     self.name          Anywhere                Default in Python
+# Protected  self._name         Still accessible, but treated as internal (convention only)
+# Private    self.__name        Only inside class       Name mangling (_ClassName__name) prevents direct access
+#
+# 🔸 Example:
+# class Student:
+#     def __init__(self):
+#         self.name = "John"         # public
+#         self._marks = 90           # protected
+#         self.__grade = 'A'         # private
+#
+# s = Student()
+# print(s.name)      # ✅ OK
+# print(s._marks)    # ⚠ Can access, but not recommended
+# # print(s.__grade) # ❌ Error
+# print(s._Student__grade)  # ✅ (Not recommended - name mangling)
+#
+# -------------------- ABSTRACTION IN PYTHON --------------------
+# 🧼 Abstraction in Python
+# Abstraction hides unnecessary implementation details, shows only the essential parts.
+# Like pressing the "start" button on a microwave without knowing how the circuits work.
+#
+# 🧰 How to Achieve Abstraction?
+# Python uses the abc module to create abstract classes.
+# abc = Abstract Base Class
+#
+# 🧪 Example of Abstract Class:
+# from abc import ABC, abstractmethod
+#
+# class Vehicle(ABC):
+#     @abstractmethod
+#     def start(self):
+#         pass
+#
+# class Car(Vehicle):
+#     def start(self):
+#         print("Car started")
+#
+# c = Car()
+# c.start()
+# # ✅ You cannot create objects of an abstract class.
+# # ✅ Subclasses must implement all abstract methods.
+#
+# -------------------- DUNDER (MAGIC) METHODS IN PYTHON --------------------
+# ⚙️ Dunder (Magic) Methods in Python
+# Special methods that start and end with __double_underscores__
+# Python calls them automatically based on object behavior
+#
+# 🔧 Common Dunder Methods:
+# Method      Purpose                  Example Call
+# __init__    Constructor              obj = Class()
+# __str__     String representation    print(obj)
+# __len__     Length                   len(obj)
+# __add__     Add objects              obj1 + obj2
+# __eq__      Equal comparison         obj1 == obj2
+#
+# 🧪 Example:
+# class Book:
+#     def __init__(self, title):
+#         self.title = title
+#     def __str__(self):
+#         return f"Book: {self.title}"
+#
+# b = Book("Python Mastery")
+# print(b)  # Calls __str__ method
+#
+# -------------------- SUMMARY TABLE --------------------
+# Concept         Purpose                    Syntax/Usage
+# Encapsulation   Protect & bundle data      _ or __
+# Abstraction     Hide internal complexity   abc.ABC, @abstractmethod
+# Dunder Methods  Customize object behavior  __init__, __str__, __add__, etc.
+#
+# -------------------- END ENCAPSULATION, ABSTRACTION & DUNDER METHODS --------------------
+
