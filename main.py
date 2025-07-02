@@ -1796,3 +1796,266 @@ Both triple quotes work the same way.
 #
 # -------------------- END ENCAPSULATION, ABSTRACTION & DUNDER METHODS --------------------
 
+# -------------------- DECORATORS IN PYTHON --------------------
+# 🍰 What is a Decorator in Python?
+# A decorator is a function that modifies or enhances another function without changing its original code.
+#
+# 🧁 Think of it like:
+# You baked a cake (your original function). Now you add icing (the decorator) without changing the actual cake. You're just enhancing it.
+#
+# 🛠 How to Create a Simple Decorator
+# def my_decorator(func):         # This is the decorator
+#     def wrapper():
+#         print("✨ Before function runs.")
+#         func()                  # Run the original function
+#         print("✨ After function runs.")
+#     return wrapper              # Return the wrapped function
+#
+# @my_decorator                   # Apply the decorator
+# def say_hello():
+#     print("Hello!")
+#
+# say_hello()
+# ✅ Output:
+# ✨ Before function runs.
+# Hello!
+# ✨ After function runs.
+#
+# 🔗 What's Actually Happening?
+# This:
+# @my_decorator
+# def say_hello():
+#     print("Hello!")
+# Is the same as:
+# def say_hello():
+#     print("Hello!")
+# say_hello = my_decorator(say_hello)
+# say_hello()
+#
+# 🎁 Decorator with *args and **kwargs
+# Sometimes your function has arguments. You need to make your decorator flexible using *args and **kwargs.
+#
+# def smart_decorator(func):
+#     def wrapper(*args, **kwargs):   # Accept any number of arguments
+#         print("👀 Checking before function call...")
+#         result = func(*args, **kwargs)  # Call the actual function
+#         print("✅ Function executed.")
+#         return result
+#     return wrapper
+#
+# @smart_decorator
+# def greet(name):
+#     print(f"Hello, {name}!")
+#
+# greet("Mitan")
+# ✅ Output:
+# 👀 Checking before function call...
+# Hello, Mitan!
+# ✅ Function executed.
+#
+# 🧠 Use Cases in Real Projects
+# - Logging
+# - Authorization (checking if a user is logged in)
+# - Time taken to execute a function
+# - Caching results (memoization)
+# - Validation wrappers
+#
+# 🏁 Summary
+# Concept        Meaning
+# Decorator      Wraps a function to add behavior without modifying it
+# wrapper()      Inner function that adds new behavior
+# @decorator     Python's syntax sugar for applying a decorator
+# *args, **kwargs Allows decorator to work with any type of function signature
+#
+# -------------------- END DECORATORS --------------------
+
+# -------------------- *ARGS, **KWARGS, LAMBDA & COMPREHENSIONS --------------------
+# 🔸 *args and **kwargs in Python
+# These let you write functions that can accept any number of arguments — super useful for reusable and flexible code.
+#
+# 🔹 *args → Collects Positional Arguments into a tuple
+# def add_all(*args):
+#     print(args)
+#     return sum(args)
+#
+# print(add_all(2, 4, 6))  # Output: (2, 4, 6) → 12
+#
+# 🔹 **kwargs → Collects Keyword Arguments into a dict
+# def print_details(**kwargs):
+#     print(kwargs)
+#
+# print_details(name="Mitan", age=21)
+# # Output: {'name': 'Mitan', 'age': 21}
+#
+# 🔹 Both Together:
+# def mix_func(*args, **kwargs):
+#     print("Args:", args)
+#     print("Kwargs:", kwargs)
+#
+# mix_func(1, 2, 3, name="Akarsh", age=24)
+# # Args: (1, 2, 3)
+# # Kwargs: {'name': 'Akarsh', 'age': 24}
+#
+# 💡 Use this when you're unsure how many inputs the user will provide — like in APIs, decorators, or libraries.
+#
+# -------------------- LAMBDA FUNCTIONS --------------------
+# 🔸 Lambda Functions
+# A lambda is an anonymous (unnamed), short function that can be defined in one line.
+#
+# ✅ Syntax:
+# lambda arguments: expression
+#
+# 📦 Examples:
+# # Squaring a number
+# square = lambda x: x**2
+# print(square(4))   # Output: 16
+#
+# # Even or Odd Checker
+# check_even = lambda x: "Even" if x % 2 == 0 else "Odd"
+# print(check_even(7))   # Output: Odd
+#
+# # Multiple arguments
+# add = lambda a, b: a + b
+# print(add(3, 5))   # Output: 8
+#
+# ✅ Lambda is great with functions like map(), filter(), and sorted().
+#
+# -------------------- COMPREHENSIONS --------------------
+# 🔸 List, Dictionary, and Set Comprehensions
+# These are shortcuts to create collections like lists, sets, or dictionaries in one readable line.
+#
+# ✅ List Comprehension:
+# squares = [x**2 for x in range(5)]
+# print(squares)  # Output: [0, 1, 4, 9, 16]
+#
+# ✅ With Condition:
+# evens = [x for x in range(10) if x % 2 == 0]
+# # Output: [0, 2, 4, 6, 8]
+#
+# ✅ Dictionary Comprehension:
+# squares_dict = {x: x**2 for x in range(5)}
+# # Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+#
+# ✅ Set Comprehension:
+# unique_even_squares = {x**2 for x in range(10) if x % 2 == 0}
+# # Output: {0, 64, 4, 36, 16}
+#
+# 🧠 Summary
+# Concept        Use Case
+# *args          Variable-length positional args
+# **kwargs       Variable-length keyword args
+# Lambda         One-liner, anonymous functions
+# Comprehension  Quick way to generate list/set/dict
+#
+# -------------------- END *ARGS, **KWARGS, LAMBDA & COMPREHENSIONS --------------------
+
+# -------------------- map(), filter(), zip(), MODULES & PACKAGES --------------------
+# 🔸 map() Function
+# ✔ What it does:
+# Applies a function to each item in a sequence (like a list) and returns a map object (an iterable).
+#
+# ✅ Syntax:
+# map(function, iterable)
+#
+# 📦 Example: Square each number
+# nums = [1, 2, 3, 4]
+# squares = map(lambda x: x**2, nums)
+# print(list(squares))  # Output: [1, 4, 9, 16]
+#
+# 📦 Example: Convert to uppercase
+# names = ["mitan", "tina", "ak"]
+# upper_names = map(str.upper, names)
+# print(list(upper_names))  # Output: ['MITAN', 'TINA', 'AK']
+#
+# 🔸 filter() Function
+# ✔ What it does:
+# Filters elements from a list based on a condition. Only items that return True from the function are kept.
+#
+# ✅ Syntax:
+# filter(function, iterable)
+#
+# 📦 Example: Keep only even numbers
+# nums = [1, 2, 3, 4, 5, 6]
+# evens = filter(lambda x: x % 2 == 0, nums)
+# print(list(evens))  # Output: [2, 4, 6]
+#
+# 📦 Example: Filter out empty strings
+# texts = ["hi", "", "hello", "", "bye"]
+# non_empty = filter(None, texts)
+# print(list(non_empty))  # Output: ['hi', 'hello', 'bye']
+#
+# 🔍 Use filter() when you want to remove certain values based on a condition.
+#
+# 🔸 zip() Function
+# ✔ What it does:
+# Takes multiple iterables (like lists or tuples) and combines them into tuples pairwise.
+#
+# ✅ Syntax:
+# zip(iterable1, iterable2, ...)
+#
+# 📦 Example: Combine names and scores
+# names = ["Aarav", "Maya", "Ishaan"]
+# scores = [90, 85, 78]
+# paired = zip(names, scores)
+# print(list(paired))  # Output: [('Aarav', 90), ('Maya', 85), ('Ishaan', 78)]
+#
+# 📦 Example: Unzipping
+# zipped = [('a', 1), ('b', 2)]
+# letters, numbers = zip(*zipped)
+# print(letters)  # ('a', 'b')
+# print(numbers)  # (1, 2)
+#
+# -------------------- MODULES AND PACKAGES --------------------
+# 🔸 Modules and Packages
+# ✅ Module:
+# A .py file that contains Python code.
+# It can have variables, functions, classes.
+# Helps reuse code and keep it organized.
+#
+# # greetings.py
+# def say_hello(name):
+#     print(f"Hello {name}!")
+#
+# # main.py
+# from greetings import say_hello
+# say_hello("Mitan")
+#
+# ✅ Built-in Modules:
+# Python gives you a lot of useful tools:
+# math → math operations
+# random → random numbers
+# datetime → dates & times
+#
+# import math
+# print(math.sqrt(25))  # Output: 5.0
+#
+# import random
+# print(random.randint(1, 10))  # Random number between 1-10
+#
+# ✅ Package:
+# A folder that contains one or more .py files (modules).
+# Must have an __init__.py file (can be empty) to be recognized as a package.
+# Helps in organizing big projects.
+#
+# my_package/
+# │
+# ├── __init__.py
+# ├── module1.py
+# └── module2.py
+#
+# # In your code
+# from my_package.module1 import function1
+#
+# ✅ Third-party packages:
+# Libraries created by others.
+# Install using pip install packagename
+#
+# Examples:
+# numpy → numerical computing
+# pandas → data analysis
+# matplotlib → plotting graphs
+#
+# pip install pandas
+#
+# -------------------- END map(), filter(), zip(), MODULES & PACKAGES --------------------
+
