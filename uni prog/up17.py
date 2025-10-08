@@ -117,6 +117,7 @@ def print_marksheet(marks):
         total += score
     percentage = (total / (len(marks) * 100)) * 100  # assuming each subject is out of 100
     return total, percentage
+
 total, percentage = print_marksheet(marks)
 print("Total Marks:", total)
 print("Percentage: {:.2f}%".format(percentage))

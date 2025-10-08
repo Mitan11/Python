@@ -141,10 +141,18 @@ print(f"The difference is {result}")
 from 1 to 10 without any remainder. What is the smallest positive number
 that is evenly divisible by all of the numbers from 1 to 20?'''
 
+def is_divisible_by_all(num, limit):
+    for i in range(2, limit + 1):
+        if num % i != 0:
+            return False
+    return True
 
-
-
-
+num = 1
+while True:
+    if is_divisible_by_all(num, 10):
+        print(num)
+        break
+    num += 1
 
 
 '''7. By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that
