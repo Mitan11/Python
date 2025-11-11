@@ -1,0 +1,337 @@
+Name : Mitan Tank
+Roll_No : IT25A64
+
+'''Create a dictionary with the name Product.
+Take user input for given key value: ProductID, ProductName, Brand, Price, Stock
+Create a menu that perform the following task on created dictionary:
+1. Display all key-value pairs.
+2. Add a new key 'Warranty' with value '2 Years'.
+3. Increase 'Price' by 10%.
+4. Display the total stock value (Price * Stock).
+5. Exit'''
+
+def display_product_info(product):
+    for key, value in product.items():
+        print(f"{key}: {value}")
+
+def add_warranty(product):
+    product['Warranty'] = '2 Years'
+    print("Warranty added.")
+
+def increase_price(product):
+    product['Price'] *= 1.10
+    print("Price increased by 10%.")
+
+def display_total_stock_value(product):
+    total_value = product['Price'] * product['Stock']
+    print(f"Total Stock Value: {total_value}")
+
+product = {}
+
+# Taking user input for product details
+product['ProductID'] = input("Enter Product ID: ")
+product['ProductName'] = input("Enter Product Name: ")
+product['Brand'] = input("Enter Brand: ")
+product['Price'] = float(input("Enter Price: "))
+product['Stock'] = int(input("Enter Stock: "))
+
+while True:
+    print("\nMenu:")
+    print("1. Display all key-value pairs")
+    print("2. Add a new key 'Warranty' with value '2 Years'")
+    print("3. Increase 'Price' by 10%")
+    print("4. Display the total stock value (Price * Stock)")
+    print("5. Exit")
+
+    choice = input("Enter your choice (1-5): ")
+    if choice == '1':
+        display_product_info(product)
+    elif choice == '2':
+        add_warranty(product)
+    elif choice == '3':
+        increase_price(product)
+    elif choice == '4':
+        display_total_stock_value(product)
+    elif choice == '5':
+        print("Exiting...")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+
+'''Perform following in python using the concept of List:
+Create two list days and temperature and take input from user like following data for both list.
+You are given the weekly temperature readings (in °C) for a city:
+days = Mon, Tue, Wed, Thu, Fri, Sat, Sun
+temperature = 32, 35, 31, 30, 33, 36, 34
+Create a menu and perform the following tasks:
+1. Display temperature with day in proper format.
+1. Find the highest and lowest temperature of the week.
+2. Calculate the average temperature.
+3. Count the number of days when temperature was above 33°C.
+4. Exit'''
+
+def display_temperatures(days, temperature):
+    print("Day\tTemperature (°C)")
+    for day, temp in zip(days, temperature):
+        print(f"{day}\t{temp}")
+
+def find_highest_lowest(temperature):
+    highest = max(temperature)
+    lowest = min(temperature)
+    print(f"Highest Temperature: {highest}°C")
+    print(f"Lowest Temperature: {lowest}°C")
+
+def avg(temperature):
+    average = sum(temperature) / len(temperature)
+    print(f"Average Temperature: {average:.2f}°C")
+
+def count_days_above_threshold(temperature, threshold=33):
+    count = 0
+    for temp in temperature:
+        if temp > threshold:
+            count += 1
+    print(f"Number of days above {threshold}°C: {count}")
+
+days = []
+temperature = []
+
+# Taking user input for days and temperature
+for i in range(7):
+    day = input(f"Enter day {i+1} (e.g., Mon, Tue): ")
+    temp = float(input(f"Enter temperature for {day} (in °C): "))
+    days.append(day)
+    temperature.append(temp)
+
+while True:
+    print("\nMenu:")
+    print("1. Display temperature with day in proper format")
+    print("2. Find the highest and lowest temperature of the week")
+    print("3. Calculate the average temperature")
+    print("4. Count the number of days when temperature was above 33°C")
+    print("5. Exit")
+
+    choice = input("Enter your choice (1-5): ")
+
+    if choice == '1':
+        display_temperatures(days, temperature)
+
+    elif choice == '2':
+        find_highest_lowest(temperature)
+
+    elif choice == '3':
+        avg(temperature)
+
+    elif choice == '4':
+        count_days_above_threshold(temperature)
+
+    elif choice == '5':
+        print("Exiting...")
+        break
+
+    else:
+        print
+
+'''Perform following in python with the concept of Tuple:
+Create following tuple which store product related details.
+Create four different tuple: productId, Name, Price and Stock.
+Take all tuple values from user like following:
+product_ids = 101, 102, 103, 104
+product_names = Pen, Pencil, Notebook, Eraser
+prices = 10, 5, 50, 8
+stock = 50, 100, 40, 60
+Create a menu and perform the following tasks:
+1. Display all products in single format like: Product_ID, Name, Price, Stock, Total_Value
+2. Calculate total value of each product = price * stock and store in a tuple TotalValue and display
+3. Find and display the product with the highest total value
+4. Exit
+'''
+
+def display_products(product_ids, product_names, prices, stocks):
+    print("Product_ID\tName\tPrice\tStock\tTotal_Value")
+    for i in range(len(product_ids)):
+        total_value = prices[i] * stocks[i]
+        print(f"{product_ids[i]}\t\t{product_names[i]}\t{prices[i]}\t{stocks[i]}\t{total_value}")
+
+def calculate_total_values(prices, stocks):
+    """Return a tuple with total value per product (price * stock) in order."""
+    total_values = ()
+    for i in range(len(prices)):
+        total_values += (prices[i] * stocks[i],)
+    return total_values
+
+def find_highest_total_value(product_ids, product_names, prices, stocks):
+    highest_value = 0
+    highest_product = ()
+    for i in range(len(product_ids)):
+        total_value = prices[i] * stocks[i]
+        if total_value > highest_value:
+            highest_value = total_value
+            highest_product = (product_ids[i], product_names[i], prices[i], stocks[i], total_value)
+    print("Product with Highest Total Value:")
+    print(f"Product_ID: {highest_product[0]}, Name: {highest_product[1]}, Price: {highest_product[2]}, Stock: {highest_product[3]}, Total_Value: {highest_product[4]}")
+
+product_ids = ()
+product_names = ()
+prices = ()
+stocks = ()
+
+# Taking user input for product details
+while True:
+    print("Enter product details (or type 'done' to finish):")
+    pid = input("Enter Product ID: ")
+    if pid.lower() == 'done':
+        break
+    name = input("Enter Product Name: ")
+    price = float(input("Enter Price: "))
+    qty = int(input("Enter Stock: "))
+    
+    product_ids += (pid,)
+    product_names += (name,)
+    prices += (price,)
+    stocks += (qty,)
+
+while True:
+    print("\nMenu:")
+    print("1. Display all products in single format")
+    print("2. Calculate total value of each product and display")
+    print("3. Find and display the product with the highest total value")
+    print("4. Exit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == '1':
+        display_products(product_ids, product_names, prices, stocks)
+    elif choice == '2':
+        total_values = calculate_total_values(prices, stocks)
+        print("Total Value per product (price * stock):")
+        # Show as tuple and also aligned with products
+        print(total_values)
+        for i in range(len(product_ids)):
+            print(f"{product_ids[i]} - {product_names[i]}: {prices[i]} x {stocks[i]} = {total_values[i]}")
+    elif choice == '3':
+        find_highest_total_value(product_ids, product_names, prices, stocks)
+
+    elif choice == '4':
+        print("Exiting...")
+        break
+    
+    else:
+        print("Invalid choice. Please try again.")
+
+
+'''Create a dictionary Employee with the following details:
+Take user input for Key - Value of EmpID, Name, Gender, BasicSalary, HRA and DA.
+Create the following menu and perform the following tasks on created dictionary:
+ 1. Display all details of the employee in proper format.
+ 2. Calculate Net Salary and add that net salary as key in employee dictionary
+ Formula:
+ Net Salary = Basic + HRA + DA
+ Calculate HRA % and DA % on the basis of Basic salary.
+ 3. Remove Only Gender key from dictionary.
+ 4. Exit
+'''
+
+employee = {}
+
+employee['EmpID'] = input("Enter Employee ID: ")
+employee['Name'] = int(input("Enter Employee Name: "))
+employee['Gender'] = input("Enter Gender: ")
+employee['BasicSalary'] = float(input("Enter Basic Salary: "))
+employee['HRA'] = float(input("Enter HRA: "))
+employee['DA'] = float(input("Enter DA: "))
+
+while True:
+    print("\nMenu:")
+    print("1. Display all details of the employee in proper format")
+    print("2. Calculate Net Salary and add that net salary as key in employee dictionary")
+    print("3. Remove Only Gender key from dictionary")
+    print("4. Exit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == '1':
+        print("\nEmployee Details:")
+        for key, value in employee.items():
+            print(f"  {key}: {value}")
+
+    elif choice == '2':
+        net_salary = employee['BasicSalary'] + employee['HRA'] + employee['DA']
+        employee['NetSalary'] = net_salary
+        employee['HRA%'] = (employee['HRA'] / employee['BasicSalary']) * 100
+        employee['DA%'] = (employee['DA'] / employee['BasicSalary']) * 100
+        print(f"Net Salary calculated and added to employee dictionary.")
+
+    elif choice == '3':
+        employee.pop('Gender', None)
+        print(f"Gender key removed from employee dictionary.")
+
+    elif choice == '4':
+        print("Exiting...")
+        break
+
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+
+
+'''Perform following in python using the concept of list:
+Create different four list with the name: StudentName, marks_math, marks_science,
+marks_english
+Take five input from user for each list.
+Create a menu and perform following on created lists:
+1. Display all students details in tabular form: Name, Math, Science, English.
+2. Calculate the total marks for each student and store in a list total_marks.
+3. Find the student with the highest total marks and display.
+4. Exit
+'''
+
+student_names = []
+marks_math = []
+marks_science = []
+marks_english = []
+
+# Taking user input for student details
+for i in range(5):
+    name = input(f"Enter name of student {i+1}: ")
+    math_marks = float(input(f"Enter Math marks for {name}: "))
+    science_marks = float(input(f"Enter Science marks for {name}: "))
+    english_marks = float(input(f"Enter English marks for {name}: "))
+    
+    student_names.append(name)
+    marks_math.append(math_marks)
+    marks_science.append(science_marks)
+    marks_english.append(english_marks)
+
+while True:
+    print("\nMenu:")
+    print("1. Display all students details in tabular form: Name, Math, Science, English")
+    print("2. Calculate the total marks for each student and store in a list total_marks")
+    print("3. Find the student with the highest total marks and display")
+    print("4. Exit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == '1':
+        print("\nStudent Details:")
+        print("Name\tMath\tScience\tEnglish")
+        for i in range(len(student_names)):
+            print(f"{student_names[i]}\t{marks_math[i]}\t{marks_science[i]}\t{marks_english[i]}")
+
+    elif choice == '2':
+        total_marks = []
+        for i in range(len(student_names)):
+            total = marks_math[i] + marks_science[i] + marks_english[i]
+            total_marks.append(total)
+        print("Total marks calculated and stored in total_marks list.")
+
+    elif choice == '3':
+        highest_marks = max(total_marks)
+        index = total_marks.index(highest_marks)
+        print(f"Student with highest total marks: {student_names[index]} with {highest_marks} marks.")
+
+    elif choice == '4':
+        print("Exiting...")
+        break
+
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
