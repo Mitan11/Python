@@ -1,0 +1,370 @@
+Name : Mitan Tank
+Roll_No : IT25A64
+
+''''Write a menu driven python script for managing employee pay roll, which will
+allow user to perform following operations:
+1. Add Employee (Which will allow user to enter the employee ID, employee
+name, employee basic salary)
+2. Display gross salary (Which will allow user to enter the employee ID and will
+display employee’s gross salary based on following condition)
+Gross salary calculation:
+If basic salary is below 5000, 10% TA and 10% HRA,
+If basic salary is between 5000 and 10000, 8% TA and 8% HRA,
+If basic salary is between 10,000 and 20,000, 5% TA and 5% HRA,
+If more than 20,000 no TA and DA.
+3. Display employees with maximum and minimum salary.
+4. Exit'''
+
+employees = []
+
+def add_employee():
+    emp_id = input("Enter Employee ID: ")
+    name = input("Enter Employee Name: ")
+    basic_salary = float(input("Enter Employee Basic Salary: "))
+    employees.append({'id': emp_id, 'name': name, 'basic_salary': basic_salary})
+
+def calculate_gross_salary(basic_salary):
+    emp_id = input("Enter Employee ID to calculate gross salary: ")
+    for emp in employees:
+        if emp['id'] == emp_id:
+            basic_salary = emp['basic_salary']
+            if basic_salary < 5000:
+                ta = 0.10 * basic_salary
+                hra = 0.10 * basic_salary
+            elif 5000 <= basic_salary < 10000:
+                ta = 0.08 * basic_salary
+                hra = 0.08 * basic_salary
+            elif 10000 <= basic_salary < 20000:
+                ta = 0.05 * basic_salary
+                hra = 0.05 * basic_salary
+            else:
+                ta = 0
+                hra = 0
+            gross_salary = basic_salary + ta + hra
+            print(f"Gross Salary of Employee ID {emp_id} is: {gross_salary}")
+
+
+def display_max_min_salary():
+    if not employees:
+        print("No employees to display.")
+        return
+    max_salary = 0
+    min_salary = float('inf')
+    max_salary_emp = None
+    min_salary_emp = None
+    for emp in employees:
+        if emp['basic_salary'] > max_salary:
+            max_salary = emp['basic_salary']
+            max_salary_emp = emp
+        if emp['basic_salary'] < min_salary:
+            min_salary = emp['basic_salary']
+            min_salary_emp = emp
+    print(f"Employee with Maximum Salary: ID {max_salary_emp['id']}, Name {max_salary_emp['name']}, Salary {max_salary_emp['basic_salary']}")
+    print(f"Employee with Minimum Salary: ID {min_salary_emp['id']}, Name {min_salary_emp['name']}, Salary {min_salary_emp['basic_salary']}")
+
+while True:
+    print("\nMenu:")
+    print("1. Add Employee")
+    print("2. Display Gross Salary")
+    print("3. Display Employees with Maximum and Minimum Salary")
+    print("4. Exit")
+    
+    choice = input("Enter your choice: ")
+    
+    if choice == '1':
+        add_employee()
+    elif choice == '2':
+        calculate_gross_salary(0)
+    elif choice == '3':
+        display_max_min_salary()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+'''
+Write a menu driven python script for managing student’s result, which will allow
+user to perform following operations:
+1. Add Student (Which will allow user to enter the student roll no, student name,
+marks of three subjects)
+2. Display pass/fail status of a particular student based on following condition:
+(Which will allow user to enter the student roll no and will display student’s
+result)
+Condition for passing the exam:
+->In each subject, marks should be greater than 30 and total of any two subjects should
+be greater than 70.
+3. Display best 5 students as per their percentage.
+4. Exit
+'''
+
+students = []
+
+def add_student():
+    roll_no = input("Enter Student Roll No: ")
+    name = input("Enter Student Name: ")
+    marks = []
+    for i in range(3):
+        mark = float(input(f"Enter marks for subject {i+1}: "))
+        marks.append(mark)
+    students.append({'roll_no': roll_no, 'name': name, 'marks': marks})
+
+def display_pass_fail():
+    roll_no = input("Enter Student Roll No to check pass/fail status: ")
+    for student in students:
+        if student['roll_no'] == roll_no:
+            marks = student['marks']
+            total = sum(marks)
+            if marks[0] > 30 and marks[1] > 30 and marks[2] > 30 and (marks[0] + marks[1] > 70 or marks[1] + marks[2] > 70 or marks[0] + marks[2] > 70):
+                print(f"Student {student['name']} (Roll No: {roll_no}) has PASSED.")
+            else:
+                print(f"Student {student['name']} (Roll No: {roll_no}) has FAILED.")
+            return
+    print("Student not found.")
+
+def display_best_students():
+    for student in students:
+        total_marks = sum(student['marks'])
+        percentage = (total_marks / 300) * 100
+        print(f"Student: {student['name']}, Roll No: {student['roll_no']}, Percentage: {percentage:.2f}%")
+
+
+while True:
+    print("\nMenu:")
+    print("1. Add Student")
+    print("2. Display pass/fail status of a particular student")
+    print("3. Display best 5 students as per their percentage")
+    print("4. Exit")
+    choice = input("Enter your choice (1-4): ")
+    
+    if choice == '1':
+        add_student()
+    elif choice == '2':
+        display_pass_fail()
+    elif choice == '3':
+        display_best_students()
+    elif choice == '4':
+        print("Exiting the program.")
+        break
+    else:
+        print("Invalid choice. Please try again.")
+
+'''Write a menu driven python script for managing score of cricketer, which will
+allow user to perform following operations:
+1. Add cricketer (Which will allow user to enter the details of cricketer like,
+cricketer no, name, total runs scored, and total wickets taken)
+2. Display cricketer whose name starts with ‘S’ and wickets more than 3.
+3. Display man of the match based on highest score.
+4. Exit'''
+
+cricketers = []
+
+def add_cricketer():
+    cricketer_no = input("Enter Cricketer No: ")
+    name = input("Enter Cricketer Name: ")
+    total_runs = int(input("Enter Total Runs Scored: "))
+    total_wickets = int(input("Enter Total Wickets Taken: "))
+    cricketers.append({'no': cricketer_no, 'name': name, 'runs': total_runs, 'wickets': total_wickets})
+
+def display_s_wicket_takers():
+    print("Cricketers whose name starts with 'S' and wickets more than 3:")
+    for cricketer in cricketers:
+        if cricketer['name'].startswith('S') and cricketer['wickets'] > 3:
+            print(f"Cricketer No: {cricketer['no']}, Name: {cricketer['name']}, Runs: {cricketer['runs']}, Wickets: {cricketer['wickets']}")
+
+def display_man_of_the_match():
+    man_of_the_match = 0
+    best_cricketer = None
+    for cricketer in cricketers:
+        if cricketer['runs'] > man_of_the_match:
+            man_of_the_match = cricketer['runs']
+            best_cricketer = cricketer
+    print(f"Man of the Match: Cricketer No: {best_cricketer['no']}, Name: {best_cricketer['name']}, Runs: {best_cricketer['runs']}, Wickets: {best_cricketer['wickets']}")
+
+
+while True:
+    print("\nMenu:")
+    print("1. Add Cricketer")
+    print("2. Display cricketer whose name starts with 'S' and wickets more than 3")
+    print("3. Display man of the match based on highest score")
+    print("4. Exit")
+    choice = input("Enter your choice (1-4): ")
+    if choice == '1':
+        add_cricketer()
+    elif choice == '2':
+        display_s_wicket_takers()
+    elif choice == '3':
+        display_man_of_the_match()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+
+''' Write a menu driven python script for managing data of Bollywood actors and
+actresses, which will allow user to perform following operations:
+1. Add actor/actress (Which will allow user to enter the details like name, total
+movies, fees per movie, no of flop movies)
+2. Display rating of actor/actress based on following formula. (Which will allow
+user to enter the name and will display his/her rating)
+Formula for rating:
+Grade “I” Celebrities: more than 30 movies, less than 10 flop movies, fess more
+than 50 lakhs
+Grade “II” Celebrities: movies between 10 and 20, flow movies between 10
+and 20, fees range between 30 lakhs to 50 lakhs.
+Grade “III” Celebrities: less than 10 movies and more than 20 flop movies.
+3. Display bottom 5 celebrities based on their fess per movie.
+4. Exit'''
+
+bollywood_celebrities = []
+
+def add_celebrity():
+    name = input("Enter Celebrity Name: ")
+    total_movies = int(input("Enter Total Movies: "))
+    fees_per_movie = float(input("Enter Fees per Movie (in lakhs): "))
+    flop_movies = int(input("Enter Number of Flop Movies: "))
+    bollywood_celebrities.append({'name': name, 'total_movies': total_movies, 'fees_per_movie': fees_per_movie, 'flop_movies': flop_movies})
+
+def display_rating():
+    name = input("Enter Celebrity Name to check rating: ")
+    for celeb in bollywood_celebrities:
+        if celeb['name'] == name:
+            if celeb['total_movies'] > 30 and celeb['flop_movies'] < 10 and celeb['fees_per_movie'] > 50:
+                rating = "Grade I"
+            elif 10 <= celeb['total_movies'] <= 20 and 10 <= celeb['flop_movies'] <= 20 and 30 <= celeb['fees_per_movie'] <= 50:
+                rating = "Grade II"
+            elif celeb['total_movies'] < 10 and celeb['flop_movies'] > 20:
+                rating = "Grade III"
+            else:
+                rating = "Unrated"
+            print(f"Celebrity {name} has a rating of: {rating}")
+            return
+    print("Celebrity not found.")
+
+def get_fees(actor):
+    return actor["fees_per_movie"]
+
+def display_bottom_5():
+    sorted_actors = sorted(bollywood_celebrities, key=get_fees)
+    
+    bottom_5 = sorted_actors[:5]
+
+    print("\n--- Bottom 5 Celebrities (By Fees per Movie) ---")
+    for a in bottom_5:
+        print(f"Name: {a['name']}, Fees per Movie: {a['fees_per_movie']} lakhs, Movies: {a['total_movies']}, Flops: {a['flop_movies']}")
+
+while True:
+    print("\nMenu:")
+    print("1. Add Actor/Actress")
+    print("2. Display rating of actor/actress")
+    print("3. Display bottom 5 celebrities based on their fees per movie")
+    print("4. Exit")
+    choice = input("Enter your choice (1-4): ")
+    
+    if choice == '1':
+        add_celebrity()
+    elif choice == '2':
+        display_rating()
+    elif choice == '3':
+        display_bottom_5()
+    elif choice == '4':
+        break
+    else:
+        print("Invalid choice. Please enter a number between 1 and 4.")
+
+
+'''Write a menu-driven Python script for managing student records, allowing the user
+to perform the following operations:
+1. Add student details (Roll No, Name, Marks in three subjects).
+2. Display all students.
+3. Display student(s) whose name ends with ‘A’.
+4. Display student with highest total marks.
+5. Display student with lowest total marks.
+6. Search student by Roll Number.
+7. Sort students in descending order of total marks.
+8. Exit'''
+
+students = []
+
+def add_student():
+    roll_no = input("Enter Student Roll No: ")
+    name = input("Enter Student Name: ")
+    marks = []
+    for i in range(3):
+        mark = float(input(f"Enter marks for subject {i+1}: "))
+        marks.append(mark)
+    students.append({'roll_no': roll_no, 'name': name, 'marks': marks})
+
+def display_all_students():
+    for student in students:
+        print(f"Roll No: {student['roll_no']}, Name: {student['name']}, Marks: {student['marks']}")
+
+def display_students_name_ends_with_a():
+    print("Students whose name ends with 'A':")
+    for student in students:
+        if student['name'].endswith('A'):
+            print(f"Roll No: {student['roll_no']}, Name: {student['name']}, Marks: {student['marks']}")
+
+def display_highest_total_marks():
+    highest_total = 0
+    top_student = None
+    for student in students:
+        total_marks = sum(student['marks'])
+        if total_marks > highest_total:
+            highest_total = total_marks
+            top_student = student
+    print(f"Student with Highest Total Marks: Roll No: {top_student['roll_no']}, Name: {top_student['name']}, Total Marks: {highest_total}")
+
+def display_lowest_total_marks():
+    lowest_total = float('inf')
+    bottom_student = None
+    for student in students:
+        total_marks = sum(student['marks'])
+        if total_marks < lowest_total:
+            lowest_total = total_marks
+            bottom_student = student
+    print(f"Student with Lowest Total Marks: Roll No: {bottom_student['roll_no']}, Name: {bottom_student['name']}, Total Marks: {lowest_total}")
+
+def search_student_by_roll_no():
+    roll_no = input("Enter Student Roll No to search: ")
+    for student in students:
+        if student['roll_no'] == roll_no:
+            print(f"Found Student: Roll No: {student['roll_no']}, Name: {student['name']}, Marks: {student['marks']}")
+            return
+    print("Student not found.")
+
+def sort_students_by_total_marks_desc():
+    sorted_students = sorted(students, key=lambda x: sum(x['marks']), reverse=True)
+    print("Students sorted by Total Marks (Descending):")
+    for student in sorted_students:
+        total_marks = sum(student['marks'])
+        print(f"Roll No: {student['roll_no']}, Name: {student['name']}, Total Marks: {total_marks}")
+
+while True:
+    print("\nMenu:")
+    print("1. Add student details")
+    print("2. Display all students")
+    print("3. Display student(s) whose name ends with ‘A’")
+    print("4. Display student with highest total marks")
+    print("5. Display student with lowest total marks")
+    print("6. Search student by Roll Number")
+    print("7. Sort students in descending order of total marks")
+    print("8. Exit")
+    
+    choice = input("Enter your choice (1-8): ")
+    
+    if choice == '1':
+        add_student()
+    elif choice == '2':
+        display_all_students()
+    elif choice == '3':
+        display_students_name_ends_with_a()
+    elif choice == '4':
+        display_highest_total_marks()
+    elif choice == '5':
+        display_lowest_total_marks()
+    elif choice == '6':
+        search_student_by_roll_no()
+    elif choice == '7':
+        sort_students_by_total_marks_desc()
+    elif choice == '8':
+        print("Exiting the program.")
+        break
