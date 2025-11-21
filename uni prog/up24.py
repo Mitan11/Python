@@ -94,7 +94,7 @@ while True:
     elif choice == '6':
         # cars.sort(key=lambda x: x.price)
         # print("Cars sorted by price.")
-
+    # Sort by price using bubble sort
         for i in range(len(cars)):
             for j in range(i+1 , len(cars)):
                 if cars[i].price > cars[j].price:
