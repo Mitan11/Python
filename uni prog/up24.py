@@ -44,9 +44,10 @@ while True:
     print("3. Search Car by Color and Price")
     print("4. Update Car Details")
     print("5. Delete Car")
-    print("6. Exit")
+    print("6. Sort Cars by Price")
+    print("7. Exit")
 
-    choice = input("Enter your choice (1-6): ")
+    choice = input("Enter your choice (1-7): ")
 
     if choice == '1':
         car = Car()
@@ -89,8 +90,21 @@ while True:
                 break
         else:
             print("Car not found.")
-
+    
     elif choice == '6':
+        # cars.sort(key=lambda x: x.price)
+        # print("Cars sorted by price.")
+
+        for i in range(len(cars)):
+            for j in range(i+1 , len(cars)):
+                if cars[i].price > cars[j].price:
+                    cars[i], cars[j] = cars[j], cars[i]
+        print("Cars sorted by price.")
+
+        for car in cars:
+            car.display_cars()
+
+    elif choice == '7':
         print("Exiting...")
         break
     else:
