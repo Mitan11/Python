@@ -45,10 +45,11 @@ while True:
     print("4. Update Car Details")
     print("5. Delete Car")
     print("6. Sort Cars by Price")
-    print("7. Exit")
+    print("7. min price")
+    print("8. max price")
+    print("9. Exit")
 
-    choice = input("Enter your choice (1-7): ")
-
+    choice = input("Enter your choice (1-9): ")
     if choice == '1':
         car = Car()
         car.add_car()
@@ -105,6 +106,32 @@ while True:
             car.display_cars()
 
     elif choice == '7':
+        if not cars:
+            print("No cars available.")
+        else:
+            # min_price_car = min(cars, key=lambda x: x.price)
+            # print("Car with Minimum Price:")
+            # min_price_car.display_cars()
+            min_price = cars[0].price
+            for car in cars:
+                if car.price < min_price:
+                    min_price = car.price
+            print(f"Minimum price is: {min_price}")
+
+    elif choice == '8':
+        if not cars:
+            print("No cars available.")
+        else:
+            # max_price_car = max(cars, key=lambda x: x.price)
+            # print("Car with Maximum Price:")
+            # max_price_car.display_cars()
+            max_price = cars[0].price
+            for car in cars:
+                if car.price > max_price:
+                    max_price = car.price
+            print(f"Maximum price is: {max_price}")
+
+    elif choice == '9':
         print("Exiting...")
         break
     else:
