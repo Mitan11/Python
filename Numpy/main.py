@@ -104,8 +104,10 @@
 #
 # Deep vs. Shallow Copies
 # -----------------------
-# - b = a → both refer to the same data (shallow copy)
-# - b = a.copy() → new, independent array (deep copy)
+# - Shallow copies (views) share the same data buffer; changing one changes the other.
+#   Examples: b = a, b = a[1:], b = a.view(), np.array(a, copy=False)
+# - Deep copies own their data; changes do not leak. Use a.copy() or np.copy(a).
+# - Use np.shares_memory(a, b) to check whether two arrays overlap in memory.
 #
 # Matrix Operations
 # -----------------
@@ -373,17 +375,22 @@ except ValueError as e:
     print("Error with incompatible shapes:", e)
 
 # === Topic: Deep vs Shallow Copy ===
-# Shallow copy: Just another name for the same array (changes affect both)
-# Deep copy: A true copy of the data (changes do NOT affect the original)
-original_array = np.array([1, 2, 3, 4, 5])
-shallow_copy = original_array  # Just a reference
-shallow_copy[0] = 99  # Changes original_array too!
-print("\nOriginal after shallow copy change:", original_array)
-deep_copy = original_array.copy()  # True copy
-# Now, changing deep_copy does NOT affect original_array
-deep_copy[0] = 100
+# Views (shallow copies) share data; deep copies do not.
+original_array = np.arange(5)
+alias = original_array               # Pure alias
+slice_view = original_array[1:]      # Slice returns a view
+explicit_view = original_array.view()  # .view() also shares data
+
+print("\nShares memory with slice view:", np.shares_memory(original_array, slice_view))
+alias[0] = 99        # Mutates original_array
+slice_view[1] = 77   # Mutates original_array (index 2)
+explicit_view[-1] = 55  # Mutates original_array (last element)
+print("Original after view edits:", original_array)
+
+deep_copy = original_array.copy()  # Independent buffer
+deep_copy[0] = 123
 print("Deep copy after change:", deep_copy)
-print("Original after deep copy change:", original_array)
+print("Original remains separate:", original_array)
 
 # === Topic: Matrix Operations ===
 # Matrix multiplication: Combines two matrices in a special way (not element-wise)
