@@ -55,3 +55,8 @@ dataframe = pd.DataFrame(db)
 print(dataframe)
 
 print(dataframe.loc[3])
+
+# import csv data in pandas dataframe
+data_csv = pd.read_csv('studentData.csv')
+print("CSV Data:")
+print(data_csv)
