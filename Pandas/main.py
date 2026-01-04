@@ -138,3 +138,65 @@ print(df2[df2["Age"] > 30])
 # Filter rows based on multiple conditions using & (AND) operator
 print("\n\nPeople whose age is above 30 AND city is Paris:")
 print(df2[(df2["Age"] > 30) & (df2["City"] == 'Paris')])
+
+# ========== Finding Missing Data ==========
+
+# Create a DataFrame with missing values (NaN)
+data_missing = {
+    'A': [1, 2, np.nan, 4, 5],
+    'B': [1, 2, 3, 4, 5],
+    'C': [1, 2, 3, np.nan, np.nan],
+    'D': [1, np.nan, np.nan, np.nan, 5]
+}
+
+df_missing = pd.DataFrame(data_missing)
+
+print("\n\n========== DataFrame with Missing Data ==========")
+print(df_missing)
+
+# Check which cells contain missing values (returns boolean DataFrame)
+print("\n\nChecking for missing values using .isna():")
+print(df_missing.isna())
+
+# Count the total number of missing values in each column
+print("\n\nCounting missing values per column:")
+print(df_missing.isna().sum())
+
+# Check if any column contains at least one missing value
+print("\n\nChecking if any column has missing values:")
+print(df_missing.isna().any())
+
+# ========== Removing Missing Data ==========
+
+# Remove all rows that contain any missing values
+print("\n\nRemoving rows with any missing values using .dropna():")
+print(df_missing.dropna())
+
+# Note: dropna() doesn't modify the original DataFrame by default
+print("\n\nOriginal DataFrame (unchanged):")
+print(df_missing)
+
+# Remove rows that don't have at least 'n' non-missing values
+# thresh=1 means keep rows that have at least 1 non-null value
+print("\n\nRemoving rows using threshold (thresh=1):")
+print(df_missing.dropna(thresh=1))
+
+# ========== Filling Missing Data ==========
+
+# Fill all missing values with a constant value (0)
+print("\n\nFilling all missing values with 0:")
+print(df_missing.fillna(0))
+
+# Fill missing values with column-specific values using a dictionary
+values = {'A': 0, 'B': 100, 'C': 300, 'D': 400}
+print("\n\nFilling missing values with column-specific values:")
+print(df_missing.fillna(value=values))
+
+# Original DataFrame remains unchanged
+print("\n\nOriginal DataFrame (unchanged):")
+print(df_missing)
+
+# Fill missing values with the mean of each column
+print("\n\nFilling missing values with column means:")
+print(df_missing.fillna(df_missing.mean()))
+
