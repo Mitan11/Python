@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+    <h1>About Us</h1>
+    <p>Learn more about our mission, vision, and what we build.</p>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-content">
+    <div class="about-text">
+        <h2>Who We Are</h2>
+        <p>
+            We are a team of passionate developers building modern web
+            applications using Django. Our goal is to create clean,
+            scalable, and secure solutions.
+        </p>
+
+        <h2>Our Mission</h2>
+        <p>
+            To help developers learn Django through practical projects
+            and real-world examples.
+        </p>
+
+        <h2>Why Django?</h2>
+        <ul>
+            <li>Fast development</li>
+            <li>Secure by default</li>
+            <li>Scalable architecture</li>
+            <li>Clean MVC (MTV) pattern</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="about-cta">
+    <h2>Want to Work With Us?</h2>
+    <p>Feel free to reach out and collaborate with us.</p>
+    <a href="/myapp/contact" class="btn-primary">Contact Us</a>
+</section>
+
+{% endblock %}
