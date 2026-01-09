@@ -224,3 +224,29 @@ StMarks['Grade'] = StMarks['Percentage'].apply(lambda x: 'A' if x >= 80 and x <=
                                      'D' if x >= 40 and x <= 20 else 'F')
 
 print(StMarks)
+
+# Functions than can be applied to whole DataFrame
+# .mean(), .sum(), .max(), .min(), .std(), .count()
+
+# functions applied to columns
+# print(StMarks['Obtained marks'].mean())
+# print(StMarks['Obtained marks'].sum())
+# print(StMarks['Obtained marks'].max())
+# print(StMarks['Obtained marks'].min())
+# print(StMarks['Obtained marks'].std())
+# print(StMarks['Obtained marks'].count())
+
+# Groupby
+group = StMarks.groupby('Grade')
+print(group['Obtained marks'].mean())
+print(group['Obtained marks'].sum())
+print(group['Obtained marks'].max())
+print(group['Obtained marks'].min())
+print(group['Obtained marks'].std())
+print(group['Obtained marks'].count())
+
+# Data cleaning and handling missing data 
+# 
+# 1 Droping irrelevant columns
+# stMarks = stMarks.drop(['Percentage'], axis=1)
+# 

@@ -177,13 +177,13 @@ print("\n\nOriginal DataFrame (unchanged):")
 print(df_missing)
 
 # Remove rows that don't have at least 'n' non-missing values
-# thresh=1 means keep rows that have at least 1 non-null value
-print("\n\nRemoving rows using threshold (thresh=1):")
-print(df_missing.dropna(thresh=1))
+# thresh=2 means keep rows that have at least 2 non-null value
+print("\n\nRemoving rows using threshold (thresh=2):")
+print(df_missing.dropna(thresh=2))
 
 # ========== Filling Missing Data ==========
 
-# Fill all missing values with a constant value (0)
+# Fill all missing values with a constant value (02)
 print("\n\nFilling all missing values with 0:")
 print(df_missing.fillna(0))
 
@@ -200,3 +200,133 @@ print(df_missing)
 print("\n\nFilling missing values with column means:")
 print(df_missing.fillna(df_missing.mean()))
 
+# Merging Joining and Concatenating DataFrames
+
+# DataFrame 1: Employee information
+employees = pd.DataFrame({
+    'employee_id': [1, 2, 3, 4, 5],
+    'name': ['John', 'Anna', 'Peter', 'Linda', 'Bob'],
+    'department': ['HR', 'IT', 'Finance', 'IT', 'HR']
+})
+
+# DataFrame 2: Salary information
+salaries = pd.DataFrame({
+    'employee_id': [1, 2, 3, 6, 7],
+    'salary': [60000, 80000, 65000, 70000, 90000],
+    'bonus': [5000, 10000, 7000, 8000, 12000]
+})
+
+# Inner Join: Keep only rows with matching employee_id in both DataFrames
+pd.merge(employees, salaries, on='employee_id', how='inner')
+
+# Outer Join: Keep all rows from both DataFrames, fill missing values with NaN
+pd.merge(employees, salaries , on='employee_id', how='outer')
+
+# Left Join: Keep all rows from the left DataFrame (employees), fill missing values with NaN
+pd.merge(employees, salaries , on='employee_id', how='left')
+
+# Right Join: Keep all rows from the right DataFrame (salaries), fill missing values with NaN
+pd.merge(employees, salaries , on='employee_id', how='right')
+
+# Concatenation: Stack DataFrames vertically (one below the other)
+# DataFrame 1
+df1 = pd.DataFrame({
+    'A': ['A0', 'A1', 'A2'],
+    'B': ['B0', 'B1', 'B2'],
+    'C': ['C0', 'C1', 'C2']
+})
+
+# DataFrame 2
+df2 = pd.DataFrame({
+    'A': ['A3', 'A4', 'A5'],
+    'B': ['B3', 'B4', 'B5'],
+    'C': ['C3', 'C4', 'C5']
+})
+
+# concatenate df1 and df2
+pd.concat([df1, df2])
+
+# concatenate df1 and df2 horizontally (side by side) ->
+pd.concat([df1,df2],axis= 1)
+
+# concatenate df1 and df2 vertically (one below the other)
+pd.concat([df1,df2],axis= 0)
+
+# Joining DataFrames based on index
+
+# First DataFrame
+df1 = pd.DataFrame({
+    'name': ['Alice', 'Bob', 'Charlie']
+}, index=[1, 2, 3])
+
+# Second DataFrame
+df2 = pd.DataFrame({
+    'score': [85, 90, 75]
+}, index=[2, 3, 4])
+
+# Join df1 and df2 based on their index
+df1.join(df2)
+
+# Outer Join: Keep all rows from both DataFrames, fill missing values with NaN
+df1.join(df2,how='outer')
+
+# Left Join: Keep all rows from the left DataFrame (df1), fill missing values with NaN
+df1.join(df2,how='left')
+
+# Right Join: Keep all rows from the right DataFrame (df2), fill missing values with NaN
+df1.join(df2,how='right')
+
+# Inner Join: Keep only rows with matching index in both DataFrames
+df1.join(df2,how='inner')
+
+# Grouping and Aggregation
+
+# Sample DataFrame
+data = {
+    'Category': ['A', 'B', 'A', 'B', 'A', 'B', 'A', 'B'],
+    'Store': ['S1', 'S1', 'S2', 'S2', 'S1', 'S2', 'S2', 'S1'],
+    'Sales': [100, 200, 150, 250, 120, 180, 200, 300],
+    'Quantity': [10, 15, 12, 18, 8, 20, 15, 25],
+    'Date': pd.date_range('2023-01-01', periods=8)
+}
+
+df = pd.DataFrame(data)
+
+# Group by 'Category' and calculate the sum of sales
+category = df.groupby('Category')
+
+print(category['Sales'].sum())
+
+# df.groupby('Category')['Sales'].sum()
+
+# Group by multiple columns
+# Group by Category and Store
+grouped = df.groupby(['Category', 'Store'])
+print(grouped['Sales'].sum())
+
+# Aggregation Functions
+
+# mean
+df['Sales'].mean()
+
+# median
+df['Sales'].median()
+
+# mode
+df['Sales'].mode()
+
+# min
+df['Sales'].min()
+
+# max
+df['Sales'].max()
+
+# count
+df['Sales'].count()
+
+# std
+df['Sales'].std()
+
+# we can use agg() to apply multiple aggregation functions at once to a column
+# Find sum, mean, min, max, count, std, median of Sales column
+df['Sales'].agg(['sum', 'mean', 'min', 'max', 'count', 'std', 'median'])
