@@ -40,4 +40,8 @@ print(statistical_info)
 for i in range(1, 11):
     print(i * 8)
 
-#10. create a chart for custome balance column
+#10. create a chart for customer balance column
+
+import matplotlib.pyplot as plt
+plt.plot(data['Balance'] , marker='o')
+plt.show()
