@@ -331,5 +331,3 @@ df['Sales'].std()
 # Find sum, mean, min, max, count, std, median of Sales column
 df['Sales'].agg(['sum', 'mean', 'min', 'max', 'count', 'std', 'median'])
 
-# Pivot Tables
-
