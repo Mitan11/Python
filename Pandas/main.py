@@ -370,3 +370,45 @@ pivot2 = pd.pivot_table(df, values=['Sales', 'Units'], index='Region', columns='
 
 # it is use for counting purposes
 pd.crosstab(df['Region'] , df['Product'])
+
+# Operations on DataFrames
+
+df1 = pd.DataFrame({
+    'A': [1, 2, 3, 4, 5],
+    'B': [10, 20, 30, 40, 50],
+    'C': [100, 200, 300, 400, 500]
+})
+
+print(df1)
+
+# Gives the column names of DataFrame
+df1.columns
+
+# Gives the information about DataFrame
+df1.info()
+
+# Gives the statistical summary of DataFrame
+df1.describe()
+
+# Gives the data types of each column
+df1.dtypes
+
+# Gives the shape (rows, columns) of DataFrame
+df1.shape
+
+# Adds 10 to each value in column 'A' Broadcasting
+df1['A'] + 10
+
+# Applying Functions to DataFrame Columns
+
+# Method 1: Using a defined function
+# Simple function to square a number
+def square(x):
+    return x ** 2
+
+df1['A'] = df1['A'].apply(square)
+
+# Method 2: Using a lambda function
+# Using lambda function to cube each value in column 'B'
+df1['D'] = df1['B'].apply(lambda x: x ** 3)
+
