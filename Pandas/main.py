@@ -331,3 +331,42 @@ df['Sales'].std()
 # Find sum, mean, min, max, count, std, median of Sales column
 df['Sales'].agg(['sum', 'mean', 'min', 'max', 'count', 'std', 'median'])
 
+# Pivot Tables
+
+data = {
+    'Date': pd.date_range('2023-01-01', periods=20),
+    'Product': ['A', 'B', 'C', 'D'] * 5,
+    'Region': ['East', 'West', 'North', 'South', 'East', 'West', 'North', 'South', 'East', 'West',
+               'North', 'South', 'East', 'West', 'North', 'South', 'East', 'West', 'North', 'South'],
+    'Sales': np.random.randint(100, 1000, 20),
+    'Units': np.random.randint(10, 100, 20),
+    'Rep': ['John', 'Mary', 'Bob', 'Alice', 'John', 'Mary', 'Bob', 'Alice', 'John', 'Mary',
+            'Bob', 'Alice', 'John', 'Mary', 'Bob', 'Alice', 'John', 'Mary', 'Bob', 'Alice']
+}
+
+df = pd.DataFrame(data)
+
+# Add Month and Quarter columns
+df['Month'] = df['Date'].dt.month_name()
+df['Quarter'] = 'Q' + df['Date'].dt.quarter.astype(str)
+df
+
+# Create a pivot table to summarize sales by Region and Product
+pd.pivot_table(df , values='Sales', index='Region', columns='Product')
+
+# Create a pivot table with median aggregation function
+pd.pivot_table(df , values='Sales', index='Region', columns='Product' , aggfunc='median')
+
+# Create a pivot table with sum aggregation function and fill missing values with 0
+pd.pivot_table(df , values='Sales', index='Region', columns='Product' , aggfunc='sum', fill_value=0)
+
+# Create a pivot table with multiple values (Sales and Units)
+pivot2 = pd.pivot_table(df, values=['Sales', 'Units'], index='Region', columns='Product')
+
+# Always use numeric data for values in pivot table
+# index and columns can be of any data type or categorical data
+
+# Cross Tabulation (Crosstab)
+
+# it is use for counting purposes
+pd.crosstab(df['Region'] , df['Product'])
