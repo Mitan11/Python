@@ -1,0 +1,454 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static "myapp2/imgs/favicon.ico" %}" type="image/x-icon">
+    <!-- FontAwesome icon CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Swiper JS CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static "myapp2/css/index.css" %}">
+    <title>Koi Ride</title>
+</head>
+
+<body>
+    <!-- Header (Nav Bar) Section Start -->
+    <header class="header position-sticky top-0 bg-black" id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#main">
+                    <img class="logo" src="{% static 'myapp2/imgs/logo.png' %}" alt="Koi Ride Logo">
+                </a>
+                <button class="navbar-toggler text-white" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="offcanvas offcanvas-start bg-black" id="navbarSupportedContent">
+                    <div class="offcanvas-header">
+                        <a class="navbar-brand" href="#main">
+                            <img class="logo" src="{% static "myapp2/imgs/logo.png" %}" alt="Koi Ride Logo">
+                        </a>
+                        <button type="button"
+                            class="btn-close text-white d-flex align-items-center justify-content-center"
+                            data-bs-dismiss="offcanvas"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Partnerships">Partnerships</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'becomeapartner' %}">Become a Partner</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'becomeasupplier' %}">Become a Suppliers</a>
+                            </li>
+                            <li class="nav-item text-center">
+                                <a class="nav-link" id="Contact-btn" href="{% url 'contactus' %}">Contact Us</a>
+                                <div class="orange"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header (Nav Bar) Section End -->
+
+    <!-- Main Section Start -->
+    <main class="main" id="main">
+        <!-- Home Section Start -->
+        <section class="home" id="home">
+            <div class="banner">
+                <div class="bg-img d-flex align-items-center justify-content-center">
+                    <div class="text-center">
+                        <h2 class="heading-1 text-white">Elevate Your Travel Experience</h2>
+                        <p class="text-white">KoiRide offers luxury airport transfers and city transportation solutions
+                            <br> to make your journey seamless and comfortable
+                        </p>
+                        <div class="d-flex justify-content-center align-items-center flex-row flex-wrap gap-1">
+                            <a class="btn btn-small text-white btn-orange me-1 mt-1">Book now</a>
+                            <a class="btn btn-small text-white btn-orange me-1 mt-1 btn-outline-orange">Become a
+                                Partner</a>
+                            <a class="btn btn-small text-white btn-orange me-1 mt-1 btn-outline-orange">Become a
+                                Suppliers</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Home Section End -->
+
+        <!-- About US Section Start -->
+        <section class="about container" id="about">
+            <div class="container-fluid pt-5 pb-5 ps-4 pe-4 w-100">
+                <h2 class="heading-2 mb-4">It's Our<br>Journey</h2>
+                <div class="d-flex gap-4 d-f-wrap w-100">
+                    <div class="about-left align-self-center">
+                        <ul class="connections">
+                            <div class="car-line"><img src="{% static "myapp2/imgs/block-car01.png" %}" alt="" class="car"></div>
+                            <li class="list-item"><span class="counter-value">77</span><span>+</span> Cities</li>
+                            <li class="list-item"><span class="counter-value">10000</span><span>+</span> Drivers</li>
+                            <li class="list-item"><span class="counter-value">2000000</span><span>+</span> Passengers
+                            </li>
+                            <li class="list-item"><span class="counter-value">99.7</span><span>%</span> Satisfied
+                                Customers</li>
+                        </ul>
+                    </div>
+                    <div class="about-right mx-auto">
+                        <h3 class="heading-3 text-dark">Company Facts</h3>
+                        <ul class="c_fact fa-ul">
+                            <li class="fact_list"><span class="fa-li"><i class="fa-solid fa-check"
+                                        style="color: #E25738;"></i></span>Founded in 2015</li>
+                            <li class="fact_list"><span class="fa-li"><i class="fa-solid fa-check"
+                                        style="color: #E25738;"></i></span>Grown to 40+ employees world wide</li>
+                            <li class="fact_list"><span class="fa-li"><i class="fa-solid fa-check"
+                                        style="color: #E25738;"></i></span>Presence in 6 countries</li>
+                        </ul>
+                        <p>KoiRide is an Amsterdam-based B2B technology company that operates a global marketplace for
+                            ground transportation mainly from and to airports, so that every travel brand can offer
+                            their travelers a reliable taxi service for a fair price!</p>
+                        <h3 class="heading-3 text-dark">Our Stories</h3>
+                        <p>At KOI, we're not just a car rental service – we're a partner in your transportation needs.
+                            We're here to help you get where you need to go, whenever you need to go there. Contact us
+                            today to learn more about our rental options and start your next adventure with us.</p>
+                        <p>Our team is committed to providing exceptional customer service, and we pride ourselves on
+                            going above and beyond to ensure that our customers have a positive rental experience. Our
+                            knowledgeable staff can answer any questions you may have and help you choose the right car
+                            for your needs.</p>
+                    </div>
+                </div>
+                <div class="mx-auto team-img mb-3">
+                    <div>
+                        <h3 class="heading-3 text-dark">Say hello ?</h3>
+                        <p class="t-des">These are the faces that make sure your customers’ travels become hassle-free
+                            experiences.
+                        </p>
+                    </div>
+                    <img src="{% static 'myapp2/imgs/teams-image.jpg' %}" alt="" class="w-100 h-100 object-fit-cover">
+                </div>
+                <div class="work">
+                    <h2 class="heading-2">How <span class="text-dark">Koi <br>Works</span>.</h2>
+                    <div class="w-flow position-relative">
+                        <div class="line position-absolute top-0 h-100"><img src="{% static 'myapp2/imgs/block-car01.png' %}" alt="">
+                        </div>
+                        <div class="card w-auto">
+                            <div class="card-body">
+                                <h3 class="card-title">Book your ride</h3>
+                                <p class="card-text">Schedule your ride by entering simple details viz.,date, time,
+                                    pick-up and drop-off location, and car-type..</p>
+                            </div>
+                        </div>
+                        <div class="d-none d-md-block"></div>
+                        <div class="d-none d-md-block"></div>
+                        <div class="card w-auto">
+                            <div class="card-body">
+                                <h3 class="card-title">Meet and Greet</h3>
+                                <p class="card-text">On your arrival at the airport, our airport representatives
+                                    will meet you and will accompany you to the car.</p>
+                            </div>
+                        </div>
+                        <div class="d-none d-md-block"></div>
+                        <div class="d-none d-md-block"></div>
+                        <div class="card w-auto">
+                            <div class="card-body">
+                                <h3 class="card-title">Optimal driver matching</h3>
+                                <p class="card-text">Our system will identify the most suitable driver for the ride..
+                                </p>
+                            </div>
+                        </div>
+                        <div class="d-none d-md-block"></div>
+                        <div class="d-none d-md-block"></div>
+                        <div class="card w-auto">
+                            <div class="card-body">
+                                <h3 class="card-title">Relax and enjoy your ride</h3>
+                                <p class="card-text">Relax and enjoy your ride..</p>
+                            </div>
+                        </div>
+                        <div class="card w-auto">
+                            <div class="card-body">
+                                <h3 class="card-title">Seamless pre-pickup communication</h3>
+                                <p class="card-text">Car and driver details will be sent before the pickup via text
+                                    message and WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- About US Section End -->
+        <!-- Services Section Start -->
+        <section class="services container" id="services">
+            <div class="container-fluid pt-5 pb-5 ps-4 pe-4 w-100">
+                <h2 class="heading-2 mb-4">koi <span class="text-dark">offering</span>.</h2>
+                <div class="d-flex justify-content-around flex-wrap gap-2">
+                    <div class="card pt-3 justify-content-center align-items-center text-center  shadow-none border-0">
+                        <div class="icon fs-2"><i class="fa-solid fa-car"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Ride with KOI and save more..</h5>
+                            <p class="card-text c-text">Fixed prices that remain unchanged with delays and traffic.
+                                Transparency in prices, no hidden fees. A chauffer experience at a fraction of the
+                                price..</p>
+                        </div>
+                    </div>
+                    <div class="card pt-3 justify-content-center align-items-center text-center  shadow-none border-0">
+                        <div class="icon fs-2"><i class="fa-solid fa-user"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Partner with us and earn more.</h5>
+                            <p class="card-text c-text">Koi helps increase driver efficiency by up to 50% . Koi helps
+                                drivers/limo companies to earn up to 30% more. Faster and timely payment cycles to all
+                                our partners..</p>
+                        </div>
+                    </div>
+                    <div class="card pt-3 justify-content-center align-items-center text-center  shadow-none border-0">
+                        <div class="icon fs-2"><i class="fa-solid fa-clock"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Guaranteed Rides</h5>
+                            <p class="card-text c-text">A secure and reliable solution for your airport transfers
+                                globally We always have our driver at the pickup location prior to the time booked. A
+                                Hassle-free experience with over 98% customer satisfaction records.</p>
+                        </div>
+                    </div>
+                    <div class="card pt-3 justify-content-center align-items-center text-center  shadow-none border-0">
+                        <div class="icon fs-2"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title c-title">State of the art Drivers App</h5>
+                            <p class="card-text c-text">Koi assigns Jobs to Drivers/Limo companies up to 30 days prior
+                                and provide earning visibility. Koi Digital wallet allowing faster and more efficient
+                                payments. Access for the driver to define his desired working hours..</p>
+                        </div>
+                    </div>
+                    <div class="card pt-3 justify-content-center align-items-center text-center  shadow-none border-0">
+                        <div class="icon fs-2"><i class="fa-regular fa-face-smile"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Meet and Greet</h5>
+                            <p class="card-text c-text">Koi – coordinators at all major airports globally to assist you
+                                and make your experience even better. 24/7 on call assistance with tollfree number
+                                globally.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="Partnerships container" id="Partnerships">
+            <div class="container-fluid pt-0 pb-5 ps-4 pe-4 w-100">
+                <h2 class="heading-2 mb-4">Partnership.</h2>
+                <div class="p-grid  ">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title c-title">DMCSs and Travel Agencies</h5>
+                            <a href="#" class="btn btn-link">View More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Corporates</h5>
+                            <a href="#" class="btn btn-link">View More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Chauffeur</h5>
+                            <a href="#" class="btn btn-link">View More</a>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title c-title">Online Travel Agencies</h5>
+                            <a href="#" class="btn btn-link">View More</a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <h2 class="text-dark text-center">Trusted by leading Travel Brands</h2>
+                <div class="i-grid">
+                    <img src="{% static 'myapp2/imgs/p1.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p2.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p3.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p4.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p5.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p6.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p7.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p8.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p9.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p10.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p11.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p12.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p13.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p14.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p15.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p16.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p17.png' %}" alt="">
+                    <img src="{% static 'myapp2/imgs/p18.png' %}" alt="">
+                </div>
+            </div>
+        </section>
+        <!-- Services Section End -->
+        <!-- Review Section Start -->
+        <section class="Review container" id="Review">
+            <div class="container-fluid pt-5 pb-5 ps-4 pe-4 w-100">
+                <h2 class="heading-2 mb-4">Testimonials.</h2>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="review-card">
+                                <div class="review-avatar">
+                                    <img src="{% static 'myapp2/imgs/avatar-1.png' %}" alt="Customer Avatar">
+                                </div>
+                                <div class="review-details">
+                                    <h5>John Doe</h5>
+                                    <p>"KoiRide has transformed my daily commute! The app is incredibly user-friendly
+                                        and always reliable. I’ve never had a smoother experience getting to work.
+                                        Highly recommended!"</p>
+                                    <div class="rating">
+                                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-card">
+                                <div class="review-avatar">
+                                    <img src="{% static 'myapp2/imgs/avatar-2.png' %}" alt="Customer Avatar">
+                                </div>
+                                <div class="review-details">
+                                    <h5>John Doe</h5>
+                                    <p>"I love using KoiRide for my weekend getaways. The drivers are professional, the
+                                        cars are clean, and the service is punctual. It’s a hassle-free way to travel!"
+                                    </p>
+                                    <div class="rating">
+                                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-card">
+                                <div class="review-avatar">
+                                    <img src="{% static 'myapp2/imgs/avatar-3.png' %}" alt="Customer Avatar">
+                                </div>
+                                <div class="review-details">
+                                    <h5>John Doe</h5>
+                                    <p> "KoiRide offers top-notch service at competitive prices. The convenience of
+                                        booking a ride in seconds and the comfort during the journey are unmatched.
+                                        Kudos to the team!"</p>
+                                    <div class="rating">
+                                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-card">
+                                <div class="review-avatar">
+                                    <img src="{% static 'myapp2/imgs/avatar-4.png' %}" alt="Customer Avatar">
+                                </div>
+                                <div class="review-details">
+                                    <h5>John Doe</h5>
+                                    <p>"Switching to KoiRide was the best decision I made. The app’s intuitive
+                                        interface, coupled with excellent customer support, makes every ride a pleasure.
+                                        Five stars from me!"</p>
+                                    <div class="rating">
+                                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="review-card">
+                                <div class="review-avatar">
+                                    <img src="{% static 'myapp2/imgs/my-avatar.png' %}" alt="Customer Avatar">
+                                </div>
+                                <div class="review-details">
+                                    <h5>John Doe</h5>
+                                    <p>"KoiRide has set a new standard for ride-sharing services. The attention to
+                                        detail, from the booking process to the ride itself. I feel safe and valued as a
+                                        customer every time I use KoiRide."</p>
+                                    <div class="rating">
+                                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Review Section End -->
+    </main>
+    <!-- Main Section End -->
+    <!-- Footer Section Start -->
+    <footer class="footer container-fluid bg-dark" id="footer">
+        <div class="container pt-5 pb-5 ps-4 pe-4 w-100">
+            <div class="d-grid">
+                <div>
+                    <img src="{% static 'myapp2/imgs/logo.png' %}" alt="" class="logo-f">
+                </div>
+                <div>
+                    <h5 class="f-heading">Contact</h5>
+                    <p class="f-list">Get in touch!</p>
+                    <p class="f-list">Responsible - Desclosure</p>
+                    <p class="f-list">Dubai Silicon Oasis,<br>Headquarter Building,<br>Block B Office 703,<br>Dubai
+                        United Arab Emirates</p>
+                </div>
+                <div>
+                    <h5 class="f-heading">KoiRide.com</h4>
+                        <a href="#about" class="f-list">About Us</a>
+                        <a href="#" class="f-list">Become a supplier</a>
+                        <a href="#" class="f-list">Become a partner</a>
+                        <a href="#" class="f-list">Job openings</a>
+                </div>
+                <div>
+                    <h5 class="f-heading">Solutions</h5>
+                    <a href="#" class="f-list">For travel brand</a>
+                    <a href="#" class="f-list">For transfer companies</a>
+                    <h5 class="f-heading">Stay in touch</h5>
+                    <a href="#" class="s-icon"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="s-icon"><i class="fa-brands fa-linkedin"></i></a>
+                    <p class="f-list">Questions? Please write us at : <a href="mailto:info@koiride.com"
+                            class="color">info@koiride.com</a></p>
+                </div>
+                <div>
+                    <div><a href="#"><img class="f-img" src="{% static 'myapp2/imgs/playstore.png' %}" alt=""></a></div>
+                    <div><a href="#"><img class="f-img" src="{% static 'myapp2/imgs/appstore.png' %}" alt=""></a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <footer class="bg-black p-3">
+        <div class="text-center text-white">KOI &copy; 2024. All Rights Reserved. </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <!-- JQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Swiper JS JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Scrollreveal -->
+    <script src="{% static 'myapp2/js/scrollreveal.min.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'myapp2/js/index.js' %}"></script>
+</body>
+
+</html>
