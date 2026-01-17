@@ -45,3 +45,49 @@ for i in range(1, 11):
 import matplotlib.pyplot as plt
 plt.plot(data['Balance'] , marker='o')
 plt.show()
+
+# 11. Load data set using pandas function and display last 5 records
+data = pd.read_csv("/content/drive/MyDrive/Colab Notebooks/tips.csv") # Importing CSV data into a Pandas DataFrame
+data.tail(5)
+
+# 12. Add a new column 'Net Bill' = 'Total Bill' * size + 15%GST
+data['Net Bill'] = data['total_bill'] * data['size'] + 1.15
+data
+
+# 13. Count the number of male and female members in the dataset
+gender_counts = data['sex'].value_counts()
+print(gender_counts)
+
+# 14. Display records where bill is greater than 15 and tip is less than 5
+filtered_data = data[(data['total_bill'] > 15) & (data['tip'] < 5)]
+print(filtered_data)
+
+# 15. Find the highest and lowest amount of tip
+highest_tip = data['tip'].max()
+lowest_tip = data['tip'].min()
+highest_tip, lowest_tip
+
+# 16. Display the information of dataframe
+data.info()
+
+# 17. Create a chart to show male and female customer count
+plt.plot(gender_counts.index,gender_counts.values)
+# or
+# import matplotlib.pyplot as plt
+# gender_counts.plot(kind='bar', color=['blue', 'pink'])
+# plt.title('Male and Female Customer Count')
+# plt.xlabel('Gender')
+# plt.ylabel('Count')
+# plt.show()
+
+# 18. Display female smoker customers
+female_smokers = data[(data['sex'] == 'Female') & (data['smoker'] == 'Yes')]
+female_smokers
+
+# 19. Find total bill on weekends (Saturday and Sunday)
+total_bill_weekends = data[data['day'].isin(['Sat', 'Sun'])]['total_bill'].sum()
+total_bill_weekends
+
+# 20. Draw a triangle using line chart
+sex_count = data.value_counts("sex")
+plt.plot(sex_count.index, sex_count.values , marker="^")
