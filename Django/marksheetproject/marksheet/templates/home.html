@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marksheet System</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        h1 { color: #333; }
+        .form-container { background: #f5f5f5; padding: 20px; border-radius: 10px; max-width: 400px; }
+        input { padding: 10px; margin: 5px; width: 100px; }
+        button { padding: 10px 20px; background: #007cba; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #005a85; }
+        .error { color: red; font-weight: bold; margin: 10px 0; }
+        .instructions { color: #666; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>📊 Student Marksheet System</h1>
+    
+    <div class="instructions">
+        <p><strong>Instructions:</strong> Enter a roll number to view student marksheet</p>
+    </div>
+    
+    <!-- Show error message if student not found -->
+    {% if error %}
+        <div class="error">❌ {{ error }}</div>
+    {% endif %}
+    
+    <!-- Form to enter roll number -->
+    <div class="form-container">
+        <form action="{% url 'get_marksheet' %}" method="post">
+            {% csrf_token %}
+            <label for="roll_number"><strong>Enter Roll Number:</strong></label><br>
+            <input type="number" name="roll_number" id="roll_number" placeholder="e.g., 1" required />
+            <button type="submit">🔍 Get Marksheet</button>
+        </form>
+    </div>
+</body>
+</html>
