@@ -1,5 +1,6 @@
 # Matplotlib
-
+import numpy as np
+import pandas as pd
 # This module imports the Matplotlib library for data visualization.
 import matplotlib.pyplot as plt
 
@@ -137,3 +138,57 @@ plt.plot(x2*3,y2*3)
 plt.grid(color ='g' , linestyle=':' , linewidth=2)
 plt.subplot(2,2,4)
 plt.plot(x2*4,y2*4)
+
+# types of plots(scatter plot, bar plot, histogram, pie chart)
+# Scatter Plot
+plt.scatter(x,y, color='r', marker='o') # red circle markers
+
+size = [100,200,300,400,500]
+
+x1 = np.sin(x)
+y1 = np.cos(y)
+plt.scatter(x1,y1, color='b', marker='s',s=size , alpha=0.5) # blue square markers with size
+
+# Bar Plot
+labels = ['A', 'B', 'C', 'D', 'E']
+values = [10, 15, 13, 17, 20]
+plt.bar(labels, values, color='g') # green bars
+plt.bar(labels, values, color='g',width=0.2) # Spacified width
+
+# Horizontal Bar Plot
+# Bar Plot
+plt.barh(labels, values, color='g') # green bars
+plt.barh(labels, values, color='g', height=0.2) # Spacified height
+
+# Histogram
+x=np.random.randint(1,100,100)
+plt.hist(x,color='g',edgecolor='b')
+
+# Pie Chart
+labels = ['A', 'B', 'C', 'D', 'E']
+sizes = [10, 15, 13, 17, 20]
+
+# Creating pie chart
+plt.pie(sizes, labels=labels)
+
+# Specifying start angle
+plt.pie(sizes,labels=labels,startangle=90)
+
+x = np.array(["DBMS","AIML","CWS","PoAIML","PYTHON"])
+y = np.array([50,100,60,90,80])
+# Explode parameter to highlight a slice
+myexplode =np.array([0.2, 0, 0, 0,0])
+
+plt.pie(y,labels=x,startangle=90,explode = myexplode)
+
+# Adding shadow to pie chart
+plt.pie(y,labels=x,startangle=90,explode = myexplode,shadow = True)
+
+# Specifying colors for each slice
+myexplode =np.array([0, 0, 0.2, 0,0])
+# Defining custom colors
+mycolors = np.array(["m", "c", "b", "g","r"])
+
+plt.pie(y,labels=x,startangle=90,explode = myexplode,shadow = True,colors = mycolors)
+plt.legend(title = "Subject Name:")
+
