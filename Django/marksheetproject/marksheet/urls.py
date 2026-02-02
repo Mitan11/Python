@@ -21,4 +21,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('marksheet/', views.get_marksheet, name='get_marksheet'),
+    path('marksheet/<int:roll_number>/', views.get_marksheet, name='get_marksheet_by_roll'),
+    path('studentlist/', views.student_list, name='student_list'),
+    path('studentlist/add/', views.addStudent, name='addStudent'),
 ]
