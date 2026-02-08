@@ -8,7 +8,7 @@ from .models import Student , Marks
 # admin.site.register(Student)
 # or
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ["id" ,'roll', 'name']
+    list_display = ["id" ,'roll', 'name' , 'phone', 'course', 'totalMarks', 'percentage']
 
 admin.site.register(Student, StudentAdmin)
 
