@@ -24,7 +24,7 @@
                 </a>
             </div>
         </div>
-
+        <div>{% if msg %}<div class="alert alert-success" role="alert">{{ msg }}</div>{% endif %}</div>
         <div class="table-responsive">
             <table class="table table-striped table-hover table-bordered align-middle">
                 <thead class="table-dark">
@@ -39,7 +39,7 @@
                 <tbody>
                     {% for student in students %}
                         <tr>
-                            <td class="fw-bold">{{ forloop.counter }}</td>
+                            <td class="fw-bold"><a href="{% url 'view_result' student.roll %}">{{ forloop.counter }}</a></td>
                             <td class="fw-bold">{{ student.roll }}</td>
                             <td>{{ student.name }}</td>
                             <td>{{ student.course }}</td>

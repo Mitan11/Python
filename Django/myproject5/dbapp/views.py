@@ -27,6 +27,10 @@ def add_student(req):
         phone = req.POST.get('contact')
         course = req.POST.get('course')
 
+        if Student.objects.filter(roll=roll).exists():
+            msg = "Student with this roll number already exists"
+            return render(req , 'add.html' , {'msg': msg})
+
         # marks
         cn = req.POST.get('cn')
         dbms = req.POST.get('dbms')
@@ -51,5 +55,46 @@ def delete_student(req,roll):
     student.save()
     return redirect('home')
 
-def edit_student(req,roll):
-    return
+def edit_student(req , roll):
+    
+    student = Student.objects.get(roll=roll)
+    marks = Marks.objects.get(studentRoll=student)
+    if req.method == 'POST':
+        roll = req.POST.get('roll')
+        name = req.POST.get('name')
+        phone = req.POST.get('contact')
+        course = req.POST.get('course')
+
+        # marks
+        cn = req.POST.get('cn')
+        dbms = req.POST.get('dbms')
+        python = req.POST.get('python')
+        aiml = req.POST.get('aiml')
+        totalMarks = int(cn) + int(dbms) + int(python) + int(aiml)
+        percentage = (totalMarks / 400) * 100
+        print(roll, name, phone, course, cn, dbms, python, aiml)
+
+        student.roll = roll
+        student.name = name
+        student.phone = phone
+        student.course = course
+
+        marks.cn = cn
+        marks.dbms = dbms
+        marks.python = python
+        marks.aiml = aiml
+        student.totalMarks = totalMarks
+        student.percentage = f"{percentage:.2f}%"
+        student.save()
+        marks.save()
+
+        msg = "Student updated successfully"
+        return redirect('home')
+
+    return render(req , 'edit.html', {'student': student, 'marks': marks})
+
+def view_result(req, roll):
+    student = Student.objects.get(roll=roll)
+    marks = Marks.objects.get(studentRoll=student)
+
+    return render(req , 'marksheet.html', {'student': student, 'marks': marks})

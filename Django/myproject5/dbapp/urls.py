@@ -21,4 +21,5 @@ urlpatterns = [
     path('add/', views.add_student, name='add_student'),
     path('delete/<int:roll>/', views.delete_student, name='delete_student'),
     path('edit/<int:roll>/', views.edit_student, name='edit_student'),
+    path('view/<int:roll>/', views.view_result, name='view_result'),
 ]

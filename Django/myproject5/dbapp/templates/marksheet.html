@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marksheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f9f9f9;
+        }
+        .marksheet-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            border-bottom: 3px solid #007cba;
+            padding-bottom: 10px;
+        }
+        .student-info {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #007cba;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .total-row {
+            background-color: #e8f4fd !important;
+            font-weight: bold;
+        }
+        .percentage {
+            color: #007cba;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .back-btn {
+            background: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <div class="marksheet-container">
+        <h1>📊 Student Marksheet</h1>
+        
+        <!-- Student Information -->
+        <div class="student-info">
+            <p><strong>👤 Student Name:</strong> {{ student.name }}</p>
+            <p><strong>🔢 Roll Number:</strong> {{ student.roll }}</p>
+            <p><strong>📞 Contact:</strong> {{ student.phone }}</p>
+        </div>
+        
+        <!-- Marks Table -->
+        <h3>📚 Subject-wise Marks</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks Obtained</th>
+                    <th>Max Marks</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Computer Networks</td>
+                    <td>{{ marks.cn }}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Database Management Systems</td>
+                    <td>{{ marks.dbms }}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>{{ marks.python }}</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>aiml</td>
+                    <td>{{ marks.aiml }}</td>
+                    <td>100</td>
+                </tr>
+                
+                <tr class="total-row">
+                    <td><strong>Total</strong></td>
+                    <td><strong>{{ student.totalMarks }}</strong></td>
+                    <td><strong>400</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Result Summary -->
+        <div style="text-align: center; margin: 20px 0;">
+            <p><strong>🎯 Final Percentage:</strong> <span class="percentage">{{ student.percentage }}</span></p>
+            {% if "90" in student.percentage or "9" in student.percentage %}
+                <p style="color: #28a745; font-weight: bold;">🏆 Grade: A+ (Excellent)</p>
+            {% elif "8" in student.percentage %}
+                <p style="color: #007cba; font-weight: bold;">🥇 Grade: A (Very Good)</p>
+            {% else %}
+                <p style="color: #ffc107; font-weight: bold;">🥈 Grade: B (Good)</p>
+            {% endif %}
+        </div>
+        
+        <!-- Back to Home Button -->
+        <div style="text-align: center;">
+            <a href="{% url 'home' %}" class="back-btn">⬅️ Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
