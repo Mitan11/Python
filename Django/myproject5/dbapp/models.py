@@ -19,3 +19,4 @@ class Marks(models.Model):
     dbms = models.IntegerField(default=0)
     python = models.IntegerField(default=0)
     aiml = models.IntegerField(default=0)
+
