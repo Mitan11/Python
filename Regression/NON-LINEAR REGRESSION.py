@@ -23,7 +23,7 @@ print("MSE:", mean_squared_error(y, y_pred))
 print("R2:", r2_score(y, y_pred))
 
 plt.scatter(X, y)
-plt.plot(X, y_pred)
+plt.plot(X.values.flatten(), y_pred, color='red')
 plt.show()
 
 # New prediction
