@@ -32,9 +32,9 @@ model = KNeighborsClassifier(n_neighbors=3)
 
 # 7. Predict test data.
 model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
 
 # 8. Calculate accuracy score.
-y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 
 # 9. Display confusion matrix.
