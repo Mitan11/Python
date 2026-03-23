@@ -6,4 +6,3 @@ class StudentForm(forms.ModelForm):
         model = Student
         fields = '__all__'
         # fields = ['name', 'age', 'email']
-        

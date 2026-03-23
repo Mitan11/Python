@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 
 df = pd.read_csv('iris.csv')
 print("Shape of the dataset:", df.shape)
-print("Column names:", df.columns.tolist())
+print("Column names:", df.columns)
 
 # 2. Display first 5 records.
 
@@ -63,8 +63,8 @@ print("First 10 records:")
 print(df.head(10))
 
 # 3. Separate features and target.
-X = df.drop('target', axis=1)  # Replace 'target' with the actual target column name
-y = df['target']
+X = df.drop('Customer_Segment', axis=1)  # Replace 'target' with the actual target column name
+y = df['Customer_Segment']
 
 # 4. Split dataset into training and testing.
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

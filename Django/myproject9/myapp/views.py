@@ -15,6 +15,7 @@ def add(req):
         name = req.POST.get('name')
         age = req.POST.get('age')
         email = req.POST.get('email')
+
         Student.objects.create(name=name, age=age, email=email)
         return redirect('home')
     
@@ -33,7 +34,7 @@ def edit(req, id):
 
         return redirect('home')
 
-    return render(req, "myapp/edit.html", {"data": data})
+    return render(req, "myapp/add.html", {"data": data})
 
 def delete(req, id):
 
