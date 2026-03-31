@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Emp's
+    <a href="{% url 'add' %}">Add Emp</a>
+    <table border='1'>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>EMail</th>
+            <th>Date of joining</th>
+            <th>Action</th>
+        </tr>
+
+        {% for emp in data %}
+            <tr>
+                <td>
+                    {{emp.name}}
+                </td>
+                <td>
+                    {{emp.age}}
+                </td>
+                <td>
+                    {{emp.email}}
+                </td>
+                <td>
+                    {{emp.date_of_join}}
+                </td>
+                <td>
+                    <a href="{% url 'edit' emp.id %}">Edit</a>
+                    <br>
+                    <a href="{% url 'delete' emp.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
