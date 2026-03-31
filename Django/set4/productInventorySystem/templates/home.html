@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello, welcome to the Product Inventory System!
+    <br>
+    <br>
+    <button><a href="{% url 'add' %}">Add Product</a></button>
+    <br>
+    <br>
+    <table  border='1'>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+
+        {% if data %}
+            {% for product in data %}
+                <tr>
+                    <td>
+                        {{product.name}}
+                </td>
+                <td>
+                    {{product.quantity}}
+                </td>
+                <td>
+                    {{product.price}}
+                </td>
+                <td>
+                    {{product.category}}
+                </td>
+                <td>
+                    <a href="{% url 'edit' product.id %}">Edit</a>
+                    <br>
+                    <a href="{% url 'delete' product.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5"><center>No products available.</center></td>
+            </tr>
+        {% endif %}
+
+    </table>
+
+</body>
+</html>
