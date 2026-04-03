@@ -1,0 +1,13 @@
+StudentID,StudyHours,Attendance,Marks,Result
+101,5,90,85.0,Pass
+102,2,85,45.0,Pass
+103,7,92,90.0,Pass
+104,8,95,95.0,Pass
+105,1,60,,Fail
+106,4,70,65.0,Pass
+107,6,88,80.0,Pass
+108,9,98,99.0,Pass
+109,3,75,,Fail
+110,5,82,78.0,Pass
+111,2,55,40.0,Fail
+112,8,91,92.0,Pass
