@@ -8,6 +8,9 @@
 <body>
     Emp's
     <a href="{% url 'add' %}">Add Emp</a>
+    {{user.username}} , 
+    {{user.is_authenticated}} , 
+    {{user}}
     {% if show_logout %}
         <a href="{% url 'logout' %}">Logout</a>
     {% endif %}

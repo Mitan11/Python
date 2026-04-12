@@ -8,7 +8,8 @@ from .models import Employee
 # Create your views here.
 def home(req):
     data = Employee.objects.all()
-    return render(req , "home.html", {"data" : data, "show_logout": req.user.is_authenticated})
+    user = req.user
+    return render(req , "home.html", {"data" : data, "show_logout": req.user.is_authenticated , user : user})
 
 @login_required
 def add(req):
@@ -60,6 +61,19 @@ def login(req):
             else:
                 form.add_error(None, "Invalid username or password")
     return render(req , 'login.html' , {'form' : form})
+
+def register(req):
+    form = UserRegistrationForm()
+    if req.method == 'POST':
+        form = UserRegistrationForm(req.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            email = form.cleaned_data['email']
+            user = User.objects.create_user(username=username, password=password, email=email)
+            auth_login(req, user)
+            return redirect('home')
+    return render(req , 'register.html' , {'form' : form})
 
 
 def logout(req):
