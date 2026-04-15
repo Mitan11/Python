@@ -50,7 +50,7 @@ def home(req):
 
     return render(req, 'home.html' , {'data' : data})
 
-
+@login_required
 def add(req):
 
     form = StudentForm()
@@ -63,6 +63,7 @@ def add(req):
 
     return render(req, 'form.html', {'form' : form})
 
+@login_required
 def edit(req, id):
     
     data = get_object_or_404(Student , id = id)
@@ -75,6 +76,7 @@ def edit(req, id):
 
     return render(req, 'form.html' , {'form' : form , 'isEdit' : True })
 
+@login_required
 def delete(req , id):
     
     data = get_object_or_404(Student , id = id)

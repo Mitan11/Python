@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>student list</h1>
+
+     <button><a href="{%url 'add' %}">add</a></button> 
+     <br><br>
+    <button><a href="{%url 'logout' %}">logout</a></button> 
+    <br><br>
+    <table border='6'>
+        <tr>
+            <th>name</th>
+            <th>roll_no</th>
+            <th>subject</th>
+            <th>action</th>
+        </tr>
+        {% for student in data %}
+            <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.roll_no}}</td>
+            <td>{{student.subject}}</td>
+        </tr>
+        <tr>
+            <td>
+               <button><a href="{%url 'delete' student.id%}">delete</a></button> 
+               <button><a href="{%url 'edit' student.id%}">edit</a></button> 
+            </td>
+        </tr>
+        {% endfor %}
+    
+    </table>
+</body>
+</html>
