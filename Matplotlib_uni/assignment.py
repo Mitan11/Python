@@ -166,7 +166,7 @@ print("Top 5 Highest-Rated Movies:")
 print(top_5_movies)
 
 # 6. Find the director with the maximum number of movies.
-director_counts = df.groupby('Director').size()
+director_counts = df.groupby('w').size()
 top_director = director_counts.idxmax()
 print("Director with Maximum Number of Movies:", top_director)
 

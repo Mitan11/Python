@@ -105,7 +105,8 @@ df = pd.read_csv('Titanic-Dataset.csv')
 df.info()
 
 # 2. Handle missing values.
-df.fillna(df.mean(numeric_only=True), inplace=True)  # Fill numeric columns with mean
+new_df = df.fillna(df.mean(numeric_only=True))  # Fill numeric columns with mean
+print(new_df)
 
 # 3. Convert categorical columns (Sex) into numeric.
 df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
@@ -221,7 +222,7 @@ df['Cluster'] = model.predict(X)
 
 # 8. USe different markers for each cluster and plot a graph.
 markers = ['o', 's', 'D', '^', 'v']
-plt.figure(figsize=(8,6))
+# plt.figure(figsize=(8,6))
 
 plt.scatter(df[df['Cluster']==0]['Annual Income (k$)'],
             df[df['Cluster']==0]['Spending Score (1-100)'],
